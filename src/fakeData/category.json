@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "name": "Clothes",
+        "image": "https://picsum.photos/640/640?r=6880",
+        "creationAt": "2023-04-19T10:32:15.000Z",
+        "updatedAt": "2023-04-19T10:32:15.000Z"
+    },
+    {
+        "id": 2,
+        "name": "Electronics",
+        "image": "https://picsum.photos/640/640?r=2279",
+        "creationAt": "2023-04-19T10:32:15.000Z",
+        "updatedAt": "2023-04-19T10:32:15.000Z"
+    },
+    {
+        "id": 3,
+        "name": "Furniture",
+        "image": "https://picsum.photos/640/640?r=7786",
+        "creationAt": "2023-04-19T10:32:15.000Z",
+        "updatedAt": "2023-04-19T10:32:15.000Z"
+    },
+    {
+        "id": 4,
+        "name": "Shoes",
+        "image": "https://picsum.photos/640/640?r=7426",
+        "creationAt": "2023-04-19T10:32:15.000Z",
+        "updatedAt": "2023-04-19T10:32:15.000Z"
+    },
+    {
+        "id": 5,
+        "name": "Others",
+        "image": "https://picsum.photos/640/640?r=8414",
+        "creationAt": "2023-04-19T10:32:15.000Z",
+        "updatedAt": "2023-04-19T10:32:15.000Z"
+    }
+]
