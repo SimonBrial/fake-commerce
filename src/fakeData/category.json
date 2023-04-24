@@ -2,35 +2,35 @@
     {
         "id": 1,
         "name": "Clothes",
-        "image": "https://picsum.photos/640/640?r=6880",
+        "image": "img/clothes_Home.jpg",
         "creationAt": "2023-04-19T10:32:15.000Z",
         "updatedAt": "2023-04-19T10:32:15.000Z"
     },
     {
         "id": 2,
         "name": "Electronics",
-        "image": "https://picsum.photos/640/640?r=2279",
+        "image": "img/Electronics_Home.jpg",
         "creationAt": "2023-04-19T10:32:15.000Z",
         "updatedAt": "2023-04-19T10:32:15.000Z"
     },
     {
         "id": 3,
         "name": "Furniture",
-        "image": "https://picsum.photos/640/640?r=7786",
+        "image": "img/Furniture_Home.jpg",
         "creationAt": "2023-04-19T10:32:15.000Z",
         "updatedAt": "2023-04-19T10:32:15.000Z"
     },
     {
         "id": 4,
         "name": "Shoes",
-        "image": "https://picsum.photos/640/640?r=7426",
+        "image": "img/shoes_Home.jpg",
         "creationAt": "2023-04-19T10:32:15.000Z",
         "updatedAt": "2023-04-19T10:32:15.000Z"
     },
     {
         "id": 5,
         "name": "Others",
-        "image": "https://picsum.photos/640/640?r=8414",
+        "image": "img/others_Home.jpg",
         "creationAt": "2023-04-19T10:32:15.000Z",
         "updatedAt": "2023-04-19T10:32:15.000Z"
     }

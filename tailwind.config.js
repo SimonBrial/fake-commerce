@@ -8,6 +8,13 @@ export default {
     extend: {
       fontFamily: {
         HeroDescription: "'Bebas Neue', cursive",
+      },
+      backgroundColor: {
+        FunitureHelpColor: '#83a9ac'
+      },
+      skew: {
+        SkewOffer: '10deg',
+        SkewOffer2: '35deg',
       }
     },
   },

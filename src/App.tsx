@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Hero from "./components/Hero";
+import Home from "./components/Home";
 import Clothes from "./routes/Clothes";
 import Electronics from "./routes/Electronics";
 import Furniture from "./routes/Furniture";
@@ -12,7 +12,7 @@ function App() {
         <div className="font-HeroDescription">
             <BrowserRouter>
                 <Routes>
-                    <Route index path="/" element={<Hero />}/>
+                    <Route index path="/" element={<Home />}/>
                     <Route path="/clothes" element={<Clothes />} />
                     <Route path="/Electronics" element={<Electronics />} />
                     <Route path="/Furniture" element={<Furniture />} />

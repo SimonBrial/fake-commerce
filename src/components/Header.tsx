@@ -22,8 +22,8 @@ const Header = (): JSX.Element => {
             <BtnGeneral direction={'others'} icon={<AiFillQuestionCircle />}  text={"Others"}/>
             <Search />
             <div className="group flex items-center px-3 py-2 mr-5 cursor-pointer rounded-md transition border duration-500 ease-in-out hover:border-2 hover:border-cyan-500">
-                <MdAddShoppingCart className="text-2xl mx-2  group-hover:border-cyan-500"/>
-                <p className="uppercase">Cart</p>
+                <MdAddShoppingCart className="text-2xl mx-2  transition text duration-500 ease-in-out group-hover:text-cyan-500"/>
+                <p className="uppercase transition text duration-500 ease-in-out group-hover:text-cyan-500">Cart</p>
             </div>
         </header>
     );
