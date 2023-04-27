@@ -26,3 +26,5 @@ PROYECTO = E-COMMERCE (Frontend)
         ESTRUCTURA DE LA SECCION CORRESPONDIENTE AL PRODUCTO, PARA AGREGARLOS AL CARRITO
           - 
         ESTRUCTURA DE LA SECCION DEL CARRITO DE COMPRAS 
+
+NOTA: La seccion de "Others" no esta desarrollada ya que seria mejor mostrar informacion real en esa seccion, facilitando la seleccion de la imagen del hero y demas.

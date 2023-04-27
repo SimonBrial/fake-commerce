@@ -6,7 +6,7 @@ const Footer = (): JSX.Element => {
             <div className="flex  justify-center">
                 <div className="w-1/3 px-5 mx-10">
                     <h2 className="text-3xl ml-2">Categorys</h2>
-                    <span className="bg-white absolute h-0.5 w-[24rem] "></span>
+                    <span className="bg-white absolute h-0.5 w-[24rem] 2xl:w-[29rem]"></span>
                     <ol className="py-3 px-2 flex justify-between">
                         <li>Electronics</li>
                         <li>Clothes</li>
@@ -14,7 +14,7 @@ const Footer = (): JSX.Element => {
                         <li>Shoes</li>
                         <li>Others</li>
                     </ol>
-                    <span className="bg-white absolute h-0.5 w-[24rem]"></span>
+                    <span className="bg-white absolute h-0.5 w-[24rem] 2xl:w-[29rem]"></span>
                 </div>
                 <div className="w-1/3 ">
                     <ol>

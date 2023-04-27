@@ -35,7 +35,7 @@ const Container: React.FC = () => {
     return (
         <main className="relative">
             <div className="absolute z-10 left-5 top-5">
-                <h1 className="text-6xl text-white ml-3">
+                <h1 className="text-6xl text-white ml-3 cursor-default">
                     Shop Our Top Categories
                 </h1>
                 <span className="absolute h-1 w-[32rem] bg-red-500 z-20"></span>

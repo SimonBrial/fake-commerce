@@ -1,12 +1,12 @@
 import Container from "./Container";
 import Offer from "./Offer";
 import Footer from "./Footer";
-import Hero from "./Hero";
+import Header from "./Header";
 
 const Home = (): JSX.Element => {
     return (
         <div className="">
-            <Hero />
+            <Header />
             <Offer />
             <Container />
             <Footer />

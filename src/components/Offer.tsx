@@ -2,7 +2,7 @@ import React from "react";
 
 const Offer = () => {
     return (
-        <section className="relative h-[20rem] bg-yellow-400 border-t-8 border-b-8 border-red-500">
+        <section className="relative cursor-default h-[20rem] bg-yellow-400 border-t-8 border-b-8 border-red-500">
             <div className="text-2xl absolute h-full w-96 z-30 py-5 right-0 text-center flex flex-col justify-between mr-40">
                 <h1 className="text-[2.5rem]">Offer of</h1>
                 <span className=" text-[10rem]">35%</span>

@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Home from "./components/Home";
+import Header from "./components/Header";
+import NavBar from "./components/NavBar";
 import Clothes from "./routes/Clothes";
 import Electronics from "./routes/Electronics";
 import Furniture from "./routes/Furniture";
@@ -12,12 +14,14 @@ function App() {
         <div className="font-HeroDescription">
             <BrowserRouter>
                 <Routes>
-                    <Route index path="/" element={<Home />}/>
-                    <Route path="/clothes" element={<Clothes />} />
-                    <Route path="/Electronics" element={<Electronics />} />
-                    <Route path="/Furniture" element={<Furniture />} />
-                    <Route path="/Shoes" element={<Shoes />} />
-                    <Route path="/Others" element={<Others />} />
+                    <Route path="/" element={<NavBar />}>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/clothes" element={<Clothes />} />
+                        <Route path="/Electronics" element={<Electronics />} />
+                        <Route path="/Furniture" element={<Furniture />} />
+                        <Route path="/Shoes" element={<Shoes />} />
+                        <Route path="/Others" element={<Others />} />
+                    </Route>
                 </Routes>
             </BrowserRouter>
         </div>
