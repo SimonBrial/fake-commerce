@@ -1,30 +1,68 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 
-/* interface IByPrice {
-    
-} */
+const ByPrice = (): JSX.Element => {
+    const [price, setPrice] = useState<string | null>();
+    const [selectedPriceIndex, setSelectedPriceIndex] = useState<number | null>(
+        null
+    );
+    const [avelable, setAvelable] = useState<boolean>(false);
 
-const ByPrice = ():JSX.Element => {
+    const priceArray: string[] = ["100", "200", "300", "400", "500"];
 
-    /* const [selectedPrice, setSelectedPrice] = useState<boolean>(false)
-    const priceRef = useRef<HTMLParagraphElement>(null)
-
-    const handleSelectedPrice = () => {
-        if (priceRef.current) {
-            console.log(priceRef.current.innerHTML)
+    const handleSelectedPrice = (index: number) => {
+        if (priceArray.length > 0) {
+            setPrice(priceArray[index]);
+            setSelectedPriceIndex(index);
+        } else {
+            setPrice("Don't have price")
         }
-    } */
+    };
+    //console.log(price);
+
+    const handleDropDown = () => {
+        //console.log("prueba");
+        if (!avelable) {
+            setAvelable(true);
+        } else {
+            setAvelable(false);
+        }
+    };
 
     return (
         <div className="border-2 border-gray-200 my-2">
-            <h1 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer">Select a price ($) <span className="text-2xl"><MdArrowDropDown /></span></h1>
+            <h1
+                onClick={handleDropDown}
+                className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"
+            >
+                Select a price ($)
+                <span className="text-2xl">
+                    <MdArrowDropDown />
+                </span>
+            </h1>
             <div>
-                <p className="m-1 cursor-pointer px-2 py-1 text-center hover:bg-gray-200 transition-all">100 $</p>
-                <p className="m-1 cursor-pointer px-2 py-1 text-center hover:bg-gray-200 transition-all" >200 $</p>
-                <p className="m-1 cursor-pointer px-2 py-1 text-center hover:bg-gray-200 transition-all">300 $</p>
-                <p className="m-1 cursor-pointer px-2 py-1 text-center hover:bg-gray-200 transition-all">400 $</p>
-                <p className="m-1 cursor-pointer px-2 py-1 text-center hover:bg-gray-200 transition-all">500 $</p>
+                {!avelable ? (
+                    priceArray.map((price: string, index: number) => {
+                        const stylePrice =
+                            selectedPriceIndex === index
+                                ? "m-1 cursor-pointer px-2 py-1 text-center bg-gray-200 transition-all"
+                                : "m-1 cursor-pointer px-2 py-1 text-center hover:bg-gray-200 transition-all";
+
+                        return (
+                            <p
+                                className={stylePrice}
+                                onClick={() => handleSelectedPrice(index)}
+                                key={index}
+                            >
+                                {price} $
+                            </p>
+                        );
+                    })
+                ) : (
+                    <p className="">
+                        
+                    </p>
+                )}
             </div>
         </div>
     );

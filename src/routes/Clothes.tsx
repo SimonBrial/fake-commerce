@@ -25,8 +25,8 @@ const Clothes = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            {/* <Offer /> */}
             <ShopContainer />
+            <Offer />
             <Footer />
         </div>
     );

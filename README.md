@@ -27,8 +27,10 @@ PROYECTO = E-COMMERCE (Frontend)
         ESTRUCTURA DE LAS CARDS DE LOS ARTICULOS A VENDER
           - Debe tener un carrusel de imagenes para mostrarlas todas, las cuales vienen con la respuesta de la API.
           - Su titulo en la parte inferior de la card.
-          - Precio
+          - Precio.
+          - Descuento.
           - Un boton para "ver mas" (a la derecha) y uno para "agregar al carrito" (a la izquierda).
+          - Carrusel de imagenes para mostrart todas las imagenes que trae API, junto con sus flechas direccionales en los extremos del contenedor.
           
         ESTRUCTURA DE LA SECCION CORRESPONDIENTE AL PRODUCTO, PARA AGREGARLOS AL CARRITO
           - 
