@@ -21,8 +21,15 @@ PROYECTO = E-COMMERCE (Frontend)
             - Por categoria: [GET] `https://api.escuelajs.co/api/v1/products/?categoryId=${categoryNumber}`.
             - Por titulo: [GET] `https://api.escuelajs.co/api/v1/products/?title=${title}`.
             - Por precio: [GET] `https://api.escuelajs.co/api/v1/products/price=${price}`.
+          - Los filtro usados solo seran los de filtrado por precio y los filtrados por rango de precio, ya que son los que mejor se ajustan para nuestro caso.
           - La estructura de los campos para filtrar estaran en el lado izquierdo de la pagina y a la derecha se mostraran todos los productos que se tienen en stock.
 
+        ESTRUCTURA DE LAS CARDS DE LOS ARTICULOS A VENDER
+          - Debe tener un carrusel de imagenes para mostrarlas todas, las cuales vienen con la respuesta de la API.
+          - Su titulo en la parte inferior de la card.
+          - Precio
+          - Un boton para "ver mas" (a la derecha) y uno para "agregar al carrito" (a la izquierda).
+          
         ESTRUCTURA DE LA SECCION CORRESPONDIENTE AL PRODUCTO, PARA AGREGARLOS AL CARRITO
           - 
         ESTRUCTURA DE LA SECCION DEL CARRITO DE COMPRAS 

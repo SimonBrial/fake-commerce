@@ -1,4 +1,6 @@
+import Footer from "../components/Footer";
 import Offer from "../components/Offer";
+import ShopContainer from "../components/ShopContainer";
 
 const Clothes = (): JSX.Element => {
     return (
@@ -23,7 +25,9 @@ const Clothes = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <Offer />
+            {/* <Offer /> */}
+            <ShopContainer />
+            <Footer />
         </div>
     );
 };
