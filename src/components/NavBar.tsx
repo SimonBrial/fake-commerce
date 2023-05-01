@@ -1,11 +1,17 @@
+// Dependencies
 import { Outlet, Link } from "react-router-dom";
-import { GiClothes } from "react-icons/gi";
-import { BsPhoneFill } from "react-icons/bs";
-import { MdChair, MdAddShoppingCart } from "react-icons/md";
-import { FaShoePrints } from "react-icons/fa";
+
+// React icons
 import { AiFillQuestionCircle } from "react-icons/ai";
+import { FaShoePrints } from "react-icons/fa";
+import { BsPhoneFill } from "react-icons/bs";
+import { GiClothes } from "react-icons/gi";
+import { MdChair } from "react-icons/md";
+
+// Components
 import BtnGeneral from "./BtnGeneral";
 import Search from "./Search";
+import Cart from "./Cart";
 
 const NavBar = (): JSX.Element => {
     return (
@@ -56,12 +62,7 @@ const NavBar = (): JSX.Element => {
                     </p>
                 </div>
                 <Search />
-                <div className="group flex items-center px-3 py-2 mr-5 cursor-pointer rounded-md border-transparent transition border duration-500 ease-in-out hover:border-2 hover:border-cyan-500">
-                    <MdAddShoppingCart className="text-2xl mx-2  transition text duration-500 ease-in-out group-hover:text-cyan-500" />
-                    <p className="uppercase transition text duration-500 ease-in-out group-hover:text-cyan-500">
-                        Cart
-                    </p>
-                </div>
+                <Cart />
             </header>
             <>
                 <Outlet />

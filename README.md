@@ -23,7 +23,7 @@ PROYECTO = E-COMMERCE (Frontend)
             - Por precio: [GET] `https://api.escuelajs.co/api/v1/products/price=${price}`.
           - Los filtro usados solo seran los de filtrado por precio y los filtrados por rango de precio, ya que son los que mejor se ajustan para nuestro caso.
           - La estructura de los campos para filtrar estaran en el lado izquierdo de la pagina y a la derecha se mostraran todos los productos que se tienen en stock.
-
+        
         ESTRUCTURA DE LAS CARDS DE LOS ARTICULOS A VENDER
           - Debe tener un carrusel de imagenes para mostrarlas todas, las cuales vienen con la respuesta de la API.
           - Su titulo en la parte inferior de la card.

@@ -1,9 +1,22 @@
-import React from "react";
+import React, { ReactNode } from "react";
 
-const BtnSeeMore = () => {
+interface IBtnSeeMore {
+    description?: string;
+    styleIcon?: string;
+    styleBtn?: string;
+    icon?: ReactNode;
+}
+
+const BtnSeeMore = ({
+    description,
+    styleIcon,
+    styleBtn,
+    icon,
+}: IBtnSeeMore): JSX.Element => {
     return (
-        <button className="flex transition-all hover:bg-blue-200 bg-blue-100 text-blue-700 px-3 py-1 mx-1">
-            See more
+        <button className={styleBtn}>
+            <span className={styleIcon}>{icon}</span>
+            {description}
         </button>
     );
 };

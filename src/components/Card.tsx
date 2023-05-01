@@ -3,7 +3,7 @@ import BtnAddCart from "./BtnAddCart";
 import BtnSeeMore from "./BtnSeeMore";
 import Carousel from "./Carousel";
 
-const Card = () => {
+const Card = ():JSX.Element => {
     const array: string[] = [
         "https://picsum.photos/640/640?r=9725",
         "https://picsum.photos/640/640?r=1374",
@@ -34,7 +34,10 @@ const Card = () => {
             </div>
             <div className="flex justify-between mt-1">
                 <BtnAddCart />
-                <BtnSeeMore />
+                <BtnSeeMore
+                    description="See more"
+                    styleBtn="flex transition-all hover:bg-blue-200 bg-blue-100 text-blue-700 px-3 py-1 mx-1"
+                />
             </div>
         </article>
     );

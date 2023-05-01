@@ -15,18 +15,13 @@ const ByPrice = (): JSX.Element => {
             setPrice(priceArray[index]);
             setSelectedPriceIndex(index);
         } else {
-            setPrice("Don't have price")
+            setPrice("Don't have price");
         }
     };
     //console.log(price);
 
     const handleDropDown = () => {
-        //console.log("prueba");
-        if (!avelable) {
-            setAvelable(true);
-        } else {
-            setAvelable(false);
-        }
+        setAvelable(!avelable);
     };
 
     return (
@@ -36,12 +31,18 @@ const ByPrice = (): JSX.Element => {
                 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"
             >
                 Select a price ($)
-                <span className="text-2xl">
+                <span
+                    className={
+                        avelable
+                            ? "text-2xl transition duration-200 rotate-180"
+                            : "text-2xl transition duration-200 rotate-0"
+                    }
+                >
                     <MdArrowDropDown />
                 </span>
             </h1>
             <div>
-                {!avelable ? (
+                {avelable ? (
                     priceArray.map((price: string, index: number) => {
                         const stylePrice =
                             selectedPriceIndex === index
@@ -59,9 +60,7 @@ const ByPrice = (): JSX.Element => {
                         );
                     })
                 ) : (
-                    <p className="">
-                        
-                    </p>
+                    <p className=""></p>
                 )}
             </div>
         </div>

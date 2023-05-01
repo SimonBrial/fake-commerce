@@ -5,12 +5,7 @@ const ByPriceRange = () => {
     const [avelableRange, setAvelablePrice] = useState<boolean>(false);
 
     const handleDropDown = () => {
-        //console.log("prueba");
-        if (!avelableRange) {
-            setAvelablePrice(true);
-        } else {
-            setAvelablePrice(false);
-        }
+        setAvelablePrice(!avelableRange);
     };
 
     return (
@@ -20,11 +15,17 @@ const ByPriceRange = () => {
                 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"
             >
                 Select a price range ($)
-                <span className="text-2xl">
+                <span
+                    className={
+                        avelableRange
+                            ? "text-2xl transition duration-200 rotate-180"
+                            : "text-2xl transition duration-200 rotate-0"
+                    }
+                >
                     <MdArrowDropDown />
                 </span>
             </h1>
-            {!avelableRange ? (
+            {avelableRange ? (
                 <div>
                     <div className="flex items-center my-2 px-2">
                         <label className="mx-2 w-1/3">Max price</label>
@@ -46,8 +47,7 @@ const ByPriceRange = () => {
                     </div>
                 </div>
             ) : (
-                <div>
-                </div>
+                <div></div>
             )}
         </form>
     );
