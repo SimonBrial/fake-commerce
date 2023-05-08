@@ -1,6 +1,6 @@
-import Offer from "../components/Offer";
+import Offer from "../components/Body/Offer";
 
-const Furniture = (): JSX.Element => {
+const Furniture: React.FC = (): JSX.Element => {
     return (
         <div>
             <div className="relative">

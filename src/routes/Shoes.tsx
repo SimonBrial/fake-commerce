@@ -1,4 +1,4 @@
-import Offer from "../components/Offer";
+import Offer from "../components/Body/Offer";
 
 const Shoes = () => {
     return (

@@ -14,7 +14,7 @@ interface ICategoryHome {
     alt?: string;
 }
 
-const CategoryHome = ({
+const CategoryHome: React.FC<ICategoryHome> = ({
     iconCategory,
     description,
     titleStyles,
@@ -24,7 +24,7 @@ const CategoryHome = ({
     img,
     dir,
     alt,
-}: ICategoryHome): JSX.Element => {
+}): JSX.Element => {
     return (
         <div className={styles}>
             {/* <img src={img} alt={alt} /> */}

@@ -1,13 +1,17 @@
+import React from "react";
 import { FaDollarSign } from "react-icons/fa";
-import BtnAddCart from "./BtnAddCart";
-import BtnSeeMore from "./BtnSeeMore";
+import { BsCartPlus } from "react-icons/bs";
+import BtnAddCart from "../Buttons/BtnAddCart";
+import BtnSeeMore from "../Buttons/BtnSeeMore";
 import Carousel from "./Carousel";
 
-const Card = ():JSX.Element => {
+const Card: React.FC = (): JSX.Element => {
     const array: string[] = [
-        "https://picsum.photos/640/640?r=9725",
-        "https://picsum.photos/640/640?r=1374",
-        "https://picsum.photos/640/640?r=7238",
+        "https://i.dummyjson.com/data/products/1/1.jpg",
+        "https://i.dummyjson.com/data/products/1/2.jpg",
+        "https://i.dummyjson.com/data/products/1/3.jpg",
+        "https://i.dummyjson.com/data/products/1/4.jpg",
+        "https://i.dummyjson.com/data/products/1/thumbnail.jpg"
     ];
 
     return (
@@ -33,8 +37,15 @@ const Card = ():JSX.Element => {
                 </div>
             </div>
             <div className="flex justify-between mt-1">
-                <BtnAddCart />
+                <BtnAddCart
+                    StyleText="flex transition-all hover:bg-emerald-200 bg-emerald-100 text-emerald-700 px-3 py-1"
+                    icon={<BsCartPlus />}
+                    styleBtn="mx-1"
+                    styleIcon="mr-2 text-emerald-700"
+                    text="add to cart"
+                />
                 <BtnSeeMore
+                    dir="/cartpage"
                     description="See more"
                     styleBtn="flex transition-all hover:bg-blue-200 bg-blue-100 text-blue-700 px-3 py-1 mx-1"
                 />

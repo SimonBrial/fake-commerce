@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 
-const ByPrice = (): JSX.Element => {
+const ByPrice: React.FC = (): JSX.Element => {
     const [price, setPrice] = useState<string | null>();
     const [selectedPriceIndex, setSelectedPriceIndex] = useState<number | null>(
         null
@@ -25,8 +25,8 @@ const ByPrice = (): JSX.Element => {
     };
 
     return (
-        <div className="border-2 border-gray-200 my-2">
-            <h1
+        <section className="border-2 border-gray-200 my-2">
+            <h2
                 onClick={handleDropDown}
                 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"
             >
@@ -40,7 +40,7 @@ const ByPrice = (): JSX.Element => {
                 >
                     <MdArrowDropDown />
                 </span>
-            </h1>
+            </h2>
             <div>
                 {avelable ? (
                     priceArray.map((price: string, index: number) => {
@@ -63,7 +63,7 @@ const ByPrice = (): JSX.Element => {
                     <p className=""></p>
                 )}
             </div>
-        </div>
+        </section>
     );
 };
 

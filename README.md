@@ -1,7 +1,7 @@
 PROYECTO = E-COMMERCE (Frontend)
 
     - Se usara Fetch para hacer las peticiones a la API.
-    - API DE PLATZI = https://fakeapi.platzi.com/en/rest/introduction
+    - API DE DummyJSON = https://dummyjson.com/docs    https://dummyjson.com/products
     - Definir el diseño del proyecto con una plantilla de internet.
     - Se usara TypeScript para practicar.
     - PAra la manipulacion del estado, se usara la API CONTEXT de react.
@@ -31,9 +31,18 @@ PROYECTO = E-COMMERCE (Frontend)
           - Descuento.
           - Un boton para "ver mas" (a la derecha) y uno para "agregar al carrito" (a la izquierda).
           - Carrusel de imagenes para mostrart todas las imagenes que trae API, junto con sus flechas direccionales en los extremos del contenedor.
-          
-        ESTRUCTURA DE LA SECCION CORRESPONDIENTE AL PRODUCTO, PARA AGREGARLOS AL CARRITO
-          - 
-        ESTRUCTURA DE LA SECCION DEL CARRITO DE COMPRAS 
+        
+        ESTRUCTURA DEL DEL CARRITO DE COMPRAS (DONE) 
+          - Debe mostrar cada uno de los elementos agregados y que al final tenga un boton para pasar a comprarlos en la siguiente seccion.
+          - Debe estar definido por una imagen que lo represente, el titulo, el precio y un boton para eliminar del carrito.
 
+        SECCION DEL CARRITO DE COMPRAS PARA PAGAR
+          - Modelo a seguir https://onilab.com/blog/shopping-cart-ux/
+          - 
+
+        ESTRUCTURA DE LA SECCION CORRESPONDIENTE AL PRODUCTO, PARA AGREGARLOS AL CARRITO
+          - Debe indicar el precio con el icono de dolar a un lado.
+          - Mostrar el titulo.
+          - 
+        
 NOTA: La seccion de "Others" no esta desarrollada ya que seria mejor mostrar informacion real en esa seccion, facilitando la seleccion de la imagen del hero y demas.

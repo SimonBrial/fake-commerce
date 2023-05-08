@@ -1,4 +1,4 @@
-import Filters from "./Filters";
+import Filters from "../Filter_Section/Filters";
 import CardContainer from "./CardContainer";
 
 const ShopContainer = () => {

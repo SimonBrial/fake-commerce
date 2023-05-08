@@ -1,8 +1,8 @@
 //import { useEffect, useRef } from "react";
-import NavBar from "./NavBar";
+import NavBar from "../NavBar/NavBar";
 import Hero from "./Hero";
 
-const Header = (): JSX.Element => {
+const Header:React.FC = () => {
     /* const img = useRef<HTMLImageElement>();
 
     useEffect(() => {

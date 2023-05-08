@@ -10,7 +10,7 @@ const ByPriceRange = () => {
 
     return (
         <form className="border-2 border-gray-200">
-            <h1
+            <h2
                 onClick={handleDropDown}
                 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"
             >
@@ -24,7 +24,7 @@ const ByPriceRange = () => {
                 >
                     <MdArrowDropDown />
                 </span>
-            </h1>
+            </h2>
             {avelableRange ? (
                 <div>
                     <div className="flex items-center my-2 px-2">

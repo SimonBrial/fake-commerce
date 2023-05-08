@@ -9,11 +9,12 @@ import { GiClothes } from "react-icons/gi";
 import { MdChair } from "react-icons/md";
 
 // Components
-import BtnGeneral from "./BtnGeneral";
+import BtnGeneral from "../Buttons/BtnGeneral";
 import Search from "./Search";
-import Cart from "./Cart";
+import Cart from "../Cart/Cart";
+import BtnOthers from "../Buttons/BtnOthers";
 
-const NavBar = (): JSX.Element => {
+const NavBar: React.FC = (): JSX.Element => {
     return (
         <>
             <header className="flex justify-between items-center py-3 p-6 w-full absolute z-20">
@@ -47,12 +48,12 @@ const NavBar = (): JSX.Element => {
                     icon={<FaShoePrints />}
                     text={"Shoes"}
                 />
+                <BtnOthers />
                 {/* <BtnGeneral
-                    direction={"others"}
+                    direction={"cartpage"}
                     icon={<AiFillQuestionCircle />}
                     text={"Others"}
-                /> */}
-
+                /> 
                 <div className="group uppercase cursor-default flex items-center px-2 py-1 border-transparent transition border duration-500 ease-in-out hover:border-2 hover:border-b-cyan-500">
                     <div className="text-2xl mx-1 cursor-pointer transition text duration-500 ease-in-out group-hover:text-cyan-500">
                         <AiFillQuestionCircle />
@@ -60,7 +61,7 @@ const NavBar = (): JSX.Element => {
                     <p className="font-HeroDescription text-xl transition text duration-500 ease-in-out group-hover:text-cyan-500">
                         Others
                     </p>
-                </div>
+                </div> */}
                 <Search />
                 <Cart />
             </header>

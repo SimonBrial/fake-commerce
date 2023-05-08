@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Offer from "../components/Offer";
-import ShopContainer from "../components/ShopContainer";
+import Footer from "../components/Body/Footer";
+import Offer from "../components/Body/Offer";
+import ShopContainer from "../components/Shop_Section/ShopContainer";
 
-const Clothes = (): JSX.Element => {
+const Clothes: React.FC = (): JSX.Element => {
     return (
         <div>
             <div className="relative">

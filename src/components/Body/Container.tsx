@@ -13,7 +13,7 @@ import CategoryHome from "./CategoryHome";
     ) => React.ReactElement;
 } */
 
-const Container: React.FC = () => {
+const Container: React.FC = (): JSX.Element => {
     /* const categoryList: ICategory<string> = {
         elements: categorys.map((category) => category.image),
         render: (element: string, index: number, description: string) => (
@@ -95,7 +95,7 @@ const Container: React.FC = () => {
                         styles={"relative h-[8rem] w-full bg-yellow-500"}
                         iconCategory={<MdDevicesOther />}
                         description="Others"
-                        dir="others"
+                        dir=""
                     />
                 </div>
             </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-const Footer = (): JSX.Element => {
+const Footer: React.FC = (): JSX.Element => {
     return (
         <footer className=" pt-10 bg-slate-400 flex flex-col items-center">
             <div className="flex  justify-center">

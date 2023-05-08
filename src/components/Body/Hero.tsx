@@ -1,6 +1,6 @@
 import { DiReact } from "react-icons/di";
 
-const Hero = (): JSX.Element => {
+const Hero: React.FC = (): JSX.Element => {
     return (
         <>
             <img

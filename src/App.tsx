@@ -1,29 +1,36 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./components/Home";
-import Header from "./components/Header";
-import NavBar from "./components/NavBar";
+import Home from "./routes/Home";
+import NavBar from "./components/NavBar/NavBar";
 import Clothes from "./routes/Clothes";
 import Electronics from "./routes/Electronics";
 import Furniture from "./routes/Furniture";
 import Shoes from "./routes/Shoes";
 import Others from "./routes/Others";
+import CartPage from "./routes/CartPage";
+import AppState from "./context/appContext/AppState";
 
 function App() {
     return (
         <div className="font-HeroDescription">
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<NavBar />}>
-                        <Route path="/" element={<Home />} />
-                        <Route path="/clothes" element={<Clothes />} />
-                        <Route path="/Electronics" element={<Electronics />} />
-                        <Route path="/Furniture" element={<Furniture />} />
-                        <Route path="/Shoes" element={<Shoes />} />
-                        <Route path="/Others" element={<Others />} />
-                    </Route>
-                </Routes>
-            </BrowserRouter>
+            <AppState>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<NavBar />}>
+                            <Route path="/" element={<Home />} />
+                            <Route path="/clothes" element={<Clothes />} />
+                            <Route
+                                path="/electronics"
+                                element={<Electronics />}
+                            />
+                            <Route path="/furniture" element={<Furniture />} />
+                            <Route path="/shoes" element={<Shoes />} />
+                            <Route path="/others" element={<Others />} />
+                            <Route path="/cartpage" element={<CartPage />} />
+                        </Route>
+                    </Routes>
+                </BrowserRouter>
+            </AppState>
         </div>
     );
 }

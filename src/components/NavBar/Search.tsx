@@ -1,7 +1,8 @@
+import React from 'react';
 import { FaSearch } from 'react-icons/fa';
 
 
-const Search = ():JSX.Element => {
+const Search: React.FC = (): JSX.Element => {
     return (
         <div className='group flex items-center px-3 py-1 border-slate-600  transition border-2 duration-500 ease-in-out hover:border-2 hover:border-cyan-500'>
             <form>
