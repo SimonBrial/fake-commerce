@@ -1,16 +1,11 @@
 import { ReactNode } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { IBtnSeeMore } from "../../interface/interface";
 
-interface IBtnSeeMore {
-    description?: string;
-    styleIcon?: string;
-    styleBtn?: string;
-    icon?: ReactNode;
-    dir: string;
-}
 
 const BtnSeeMore: React.FC<IBtnSeeMore> = ({
     description,
+    handleShow,
     styleIcon,
     styleBtn,
     icon,
@@ -24,7 +19,7 @@ const BtnSeeMore: React.FC<IBtnSeeMore> = ({
     } */
 
     return (
-        <Link to={dir} className={styleBtn} /* onClick={() => handleNav(dir)} */>
+        <Link to={dir} className={styleBtn} onClick={handleShow}>
             <span className={styleIcon}>{icon}</span>
             {description}
         </Link>

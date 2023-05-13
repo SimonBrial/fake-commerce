@@ -1,4 +1,6 @@
+import Footer from "../components/Body/Footer";
 import Offer from "../components/Body/Offer";
+import ShopContainer from "../components/Shop_Section/ShopContainer";
 
 const Electronics = () => {
     return (
@@ -29,7 +31,9 @@ const Electronics = () => {
                     </div>
                 </div>
             </div>
+            <ShopContainer />
             <Offer />
+            <Footer />
         </div>
     );
 };

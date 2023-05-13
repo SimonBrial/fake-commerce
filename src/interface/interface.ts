@@ -1,10 +1,15 @@
+import { ReactNode } from 'react';
 export interface IProducts {
     description?: string;
     thumbnail?: string;
+    category?: string;
     images?: string[];
+    rating?: number;
+    brand?: string;
     title?: string;
+    stock?: number;
     name?: string;
-    price: number;
+    price?: number;
     id?: number;
 }
 export interface IContextProducts {
@@ -29,11 +34,27 @@ export interface ICategory {
     id?: number;
 }
 
-export interface InitialContext {
-
-}
 export interface IContextProps {
+    children?: any; // TODO: Pending for revision
     cart?: IContextProducts[];
     products?: IContextProducts[];
     addProduct?: () => void;
+}
+
+export interface IBtnSeeMore {
+    description?: string;
+    styleIcon?: string;
+    styleText?: string;
+    styleBtn?: string;
+    icon?: ReactNode;
+    dir: string;
+    handleShow?: () => void;
+}
+export interface IBtnInfoCard {
+    description?: string;
+    styleIcon?: string;
+    styleText?: string;
+    styleBtn?: string;
+    icon?: ReactNode;
+    handleShow?: () => void;
 }

@@ -5,7 +5,7 @@ import { ADD_PRODUCT, CART } from "../actions";
 import { initialState } from "../initialState";
 import { IContextProps } from "../../interface/interface";
 
-const AppState = (props: any) => {
+const AppState: React.FC<IContextProps> = (props) => {
     //const Appcontext = useContext(AppContext);
     const initialStateReducer = {
         products: initialState,

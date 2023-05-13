@@ -1,70 +1,93 @@
-import { useState } from "react";
-import BtnAddCart from "../Buttons/BtnAddCart";
-import { AiFillDelete } from "react-icons/ai";
+import { useState, useEffect } from "react";
 import { FaDollarSign } from "react-icons/fa";
-import { IProducts } from "../../interface/interface";
-import { IconBaseProps } from "react-icons";
+import { discount, notDiscount, stockCount } from "../../utils/utils";
 
 interface ICounterItems {
     price: number;
+    stock: number;
 }
 
-const CounterItems: React.FC<ICounterItems> = ({ price }): JSX.Element => {
+const CounterItems: React.FC<ICounterItems> = ({
+    price,
+    stock,
+}): JSX.Element => {
     const [count, setCount] = useState<number>(1);
+    const [incrementAvelable, setIncrementAvelable] = useState<boolean>(true);
+    const [decrementAvelable, setDecrementAvelable] = useState<boolean>(true);
+
+    const discountValue: number = 0.35;
+    const priceWithOutDiscount: number = notDiscount(price, count);
+    const priceDiscount: number = discount(price, discountValue, count);
+    const stockAvelable: number = stockCount(stock, count);
+
+    useEffect(() => {
+        if (count == stock) {
+            setIncrementAvelable(false);
+        } else if (count == 1) {
+            setDecrementAvelable(false);
+        } else if (count > 1 && count < stock) {
+            setIncrementAvelable(true);
+            setDecrementAvelable(true);
+        }
+    }, [count]);
 
     const handleIncrement = () => {
-        if (count >= 1) {
-            return setCount(count + 1);
+        if (count >= 1 && count < stock) {
+            setCount(count + 1);
         } else {
-            return setCount(count);
+            setCount(count);
         }
     };
     const handleDecrement = () => {
         if (count > 1) {
-            return setCount(count - 1);
-        } else {
-            return setCount(0);
+            setCount(count - 1);
+        } else if (count == 0) {
+            setCount(1);
         }
     };
 
-    const descountValue: number = 0.35;
-
-    const notDescount = (price: number): number => {
-        const value: number = count*price
-        return Number(value.toFixed(2));
-    };
-
-    const priceWithOutDescount = notDescount(price);
-
-    const descount = (price: number, descount: number): number => {
-        const formatPrice: number = count*(price * descount);
-        return Number(formatPrice.toFixed(2));
-    };
-
-    const priceDescount = descount(price, descountValue);
-
     return (
-        <div className="flex mr-5">
+        <div className="flex justify-between w-[14rem] mr-1">
             <div className="flex gap-1 flex-col items-center">
+                <p className="text-sm px-2 flex text-gray-400">
+                    Stock: {stockAvelable}
+                </p>
                 <div className="flex items-center gap-1 border-2 border-gray-200 text-xl">
-                    <button className="px-3 py-0.5" onClick={handleDecrement}>
-                        -
-                    </button>
-                    <p className="">{count}</p>
-                    <button className="px-3 py-0.5" onClick={handleIncrement}>
-                        +
-                    </button>
+                    {decrementAvelable ? (
+                        <>
+                            <button
+                                className="m-0.5 px-3  hover:bg-cyan-100 transition-all"
+                                onClick={handleDecrement}
+                            >
+                                -
+                            </button>
+                        </>
+                    ) : (
+                        <span className="px-3 py-0.5"></span>
+                    )}
+                    <p className="px-1">{count}</p>
+
+                    {incrementAvelable ? (
+                        <button
+                            className="m-0.5 px-3  hover:bg-cyan-100 transition-all"
+                            onClick={handleIncrement}
+                        >
+                            +
+                        </button>
+                    ) : (
+                        <span className="px-3 py-0.5"></span>
+                    )}
                 </div>
                 <p className="flex items-center text-sm">
                     <FaDollarSign className="" /> {price} /item
                 </p>
             </div>
-            <div className="text-2xl px-2 flex flex-col items-center">
+            <div className="text-2xl px-2 flex flex-col items-center justify-end">
                 <p className="text-2xl px-2 flex">
-                    <FaDollarSign className="" /> {priceDescount}
+                    <FaDollarSign className="" /> {priceDiscount}
                 </p>
                 <p className="text-sm px-2 flex text-gray-400 line-through">
-                    <FaDollarSign className="" /> {priceWithOutDescount}
+                    <FaDollarSign className="" /> {priceWithOutDiscount}
                 </p>
             </div>
         </div>

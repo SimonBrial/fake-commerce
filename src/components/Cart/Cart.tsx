@@ -2,8 +2,9 @@ import { useState, useContext } from "react";
 import { MdAddShoppingCart } from "react-icons/md";
 import CartItemsContainer from "./CartItemsContainer";
 import AppContext from "../../context/appContext/AppContext";
+import { IContextProps } from "../../interface/interface";
 
-const products = [
+/* const products = [
     {
         id: 1,
         title: "iPhone 9",
@@ -56,31 +57,29 @@ const products = [
         thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
         images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
     },
-];
+]; */
 
 const Cart: React.FC = (): JSX.Element => {
     const [availableCart, setAvailableCart] = useState<boolean>(false);
-    const { products } = useContext(AppContext)
-    //  ERROR: La propiedad 'products' no existe en el tipo 'InitialStateType'.ts(2339)
-
-
+    const globalContext = useContext(AppContext)
+    const { products } = globalContext as IContextProps;
+    
     const handleCart = () => {
-        //console.log("From BtnCart");
         setAvailableCart(!availableCart);
-        console.log(products)
     };
 
     return (
         <>
-            <div
+            <button
+                type="button"
                 onClick={handleCart}
-                className="relative group flex items-center px-3 py-2 mr-5 cursor-pointer rounded-md border-transparent transition border duration-500 ease-in-out hover:border-2 hover:border-cyan-500"
+                className="relative group flex items-center px-3 py-2 mr-5 cursor-pointer rounded-md border-transparent transition border duration-500 ease-in-out hover:bg-cyan-500"
             >
-                <MdAddShoppingCart className="text-2xl mx-2  transition text duration-500 ease-in-out group-hover:text-cyan-500" />
-                <p className="uppercase transition text duration-500 ease-in-out group-hover:text-cyan-500">
+                <MdAddShoppingCart className="text-2xl mx-2  transition text duration-500 ease-in-out group-hover:text-white" />
+                <p className="uppercase text-xl transition text duration-500 ease-in-out group-hover:text-white">
                     Cart
                 </p>
-            </div>
+            </button>
             {availableCart ? (
                 <div className="absolute w-[20rem] right-11 top-[5rem] p-2  border-2 border-gray-200 bg-white transition-all duration-500 ease-in-out">
                     <CartItemsContainer items={products} />

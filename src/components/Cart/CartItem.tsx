@@ -9,7 +9,9 @@ const CartItem: React.FC<IContextProducts> = ({
     images,
     price,
     title,
+    brand,
 }): JSX.Element => {
+    console.log(brand);
     return (
         <div className="relative flex gap-2 flex-row items-center p-1 border-2 border-gray-300 hover:bg-gradient-to-r from-gray-200 to-white transition-all">
             {Array.isArray(images) ? (
@@ -21,14 +23,16 @@ const CartItem: React.FC<IContextProducts> = ({
             ) : (
                 <div>Image not available</div>
             )}
-            <div className=" px-1">
+            <div className="relative w-3/5 px-1 cursor-default leading-4
+            ">
                 <h3 className="text-lg">{title}</h3>
-                <span className="w-2/5 px-2 flex items-center text-xl bg-gradient-to-r from-yellow-400 to-white">
-                    <FaDollarSign className="text-lg" />
+                <p className="">{brand}</p>
+                <p className="w-2/3 flex items-center px-2 text-xl bg-gradient-to-r from-yellow-400 to-white">
+                    <span>
+                        <FaDollarSign className="text-lg z-10" />
+                    </span>
                     {price}
-                </span>
-                <p>{title}</p>
-                <span className="absolute h-0.5 w-44 z-0 bg-red-500 bottom-2"></span>
+                </p>
             </div>
             <BtnAddCart
                 icon={<TiDelete />}

@@ -18,12 +18,8 @@ const BtnAddCart: React.FC<IBtnAddCart> = ({
 }): JSX.Element => {
     return (
         <button className={styleBtn}>
-            <p className={StyleText}>
-                <span className={styleIcon}>
-                    {icon}
-                </span>
-                {text}
-            </p>
+            <span className={styleIcon}>{icon}</span>
+            <p className={StyleText}>{text}</p>
         </button>
     );
 };

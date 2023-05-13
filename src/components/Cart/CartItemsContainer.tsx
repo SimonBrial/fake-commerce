@@ -21,6 +21,7 @@ const CartItemsContainer: React.FC<ProductsTypes> = ({
                                         images={item.images}
                                         price={item.price}
                                         title={item.title}
+                                        brand={item.brand}
                                     />
                                 </li>
                             );

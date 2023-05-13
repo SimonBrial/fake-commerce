@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./routes/Home";
+import Home from "./pages/Home";
 import NavBar from "./components/NavBar/NavBar";
-import Clothes from "./routes/Clothes";
-import Electronics from "./routes/Electronics";
-import Furniture from "./routes/Furniture";
-import Shoes from "./routes/Shoes";
-import Others from "./routes/Others";
-import CartPage from "./routes/CartPage";
+import Clothes from "./pages/Clothes";
+import Electronics from "./pages/Electronics";
+import Furniture from "./pages/Furniture";
+import Shoes from "./pages/Shoes";
+import Others from "./pages/Others";
+import CartPage from "./pages/CartPage";
 import AppState from "./context/appContext/AppState";
 
 function App() {

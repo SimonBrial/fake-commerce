@@ -8,7 +8,6 @@ interface ICarouselProps {
 }
 
 const Carousel = ({ images, width, height }: ICarouselProps) => {
-    
     const [currentIndex, setCurrentIndex] = useState<number>(0);
     const carouselRef = useRef<HTMLDivElement>(null);
 
@@ -48,7 +47,7 @@ const Carousel = ({ images, width, height }: ICarouselProps) => {
             >
                 {images.map((image: string, i: number) => (
                     <img
-                        className=" h-[15rem] w-[15rem] px-1 inline-block scroll-snap-align-start"
+                        className=" h-[15rem] w-[15rem] px-3 inline-block scroll-snap-align-start"
                         alt={`Image ${i}`}
                         src={image}
                         key={i}
@@ -56,18 +55,18 @@ const Carousel = ({ images, width, height }: ICarouselProps) => {
                 ))}
             </div>
             {/* top-1/3 */}
-            <div className='absolute px-2 top-0 w-full bottom-1 flex justify-between'>
+            <div className="absolute w-full top-[7rem] flex justify-between">
                 <button
-                    className="text-[2rem] ml-1 text-black z-20"
+                    className="text-[2rem] -ml-4 z-20"
                     onClick={handlePrev}
                 >
-                    <BsChevronCompactLeft className="hover:border-b-2 border-red-500"/>
+                    <BsChevronCompactLeft className="hover:scale-110 transition-all" />
                 </button>
                 <button
-                    className="text-[2rem] mr-2 text-black z-20"
+                    className="text-[2rem] -mr-2 z-20"
                     onClick={handleNext}
                 >
-                    <BsChevronCompactRight className="hover:border-b-2 border-red-500"/>
+                    <BsChevronCompactRight className="hover:scale-110 transition-all" />
                 </button>
             </div>
         </div>
