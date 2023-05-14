@@ -5,8 +5,11 @@ import ShopContainer from "../components/Shop_Section/ShopContainer";
 const Clothes: React.FC = (): JSX.Element => {
     return (
         <div>
-            <div className="relative">
-                <img src="img/Hero_Sections/clothes_hero.jpg" className="" />
+            <div className="relative h-[40rem] sm:h-full bg-cyan-500 sm:bg-transparent">
+                <img
+                    src="img/Hero_Sections/clothes_hero.jpg"
+                    className="hidden sm:block h-[40rem] sm:h-full"
+                />
                 <div className="absolute z-20 top-[11rem] 2xl:top-[14rem] left-[4rem] 2xl:left-[10rem] text-[5rem] ">
                     <div className="relative w-[40rem] h-[25rem]">
                         <h1 className="absolute right-[6rem] 2xl:right-[4rem]">

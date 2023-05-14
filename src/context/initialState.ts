@@ -55,7 +55,7 @@ export const initialState: IContextProducts[] = [
         images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
     },
     {
-        id: 1,
+        id: 4,
         title: "iPhone 9",
         description: "An apple mobile which is nothing like apple",
         price: 549,
@@ -74,7 +74,7 @@ export const initialState: IContextProducts[] = [
         ],
     },
     {
-        id: 2,
+        id: 5,
         title: "iPhone X",
         description:
             "SIM-Free, Model A19211 6.5-inch Super Retina HD display with OLED technology A12 Bionic chip with ...",
@@ -93,7 +93,7 @@ export const initialState: IContextProducts[] = [
         ],
     },
     {
-        id: 3,
+        id: 6,
         title: "Samsung Universe 9",
         description:
             "Samsung's new variant which goes beyond Galaxy to the Universe",

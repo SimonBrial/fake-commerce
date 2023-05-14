@@ -60,12 +60,12 @@ import { IContextProps } from "../../interface/interface";
 ]; */
 
 const Cart: React.FC = (): JSX.Element => {
-    const [availableCart, setAvailableCart] = useState<boolean>(false);
+    const [cart, setCart] = useState<boolean>(false);
     const globalContext = useContext(AppContext)
     const { products } = globalContext as IContextProps;
     
     const handleCart = () => {
-        setAvailableCart(!availableCart);
+        setCart(!cart);
     };
 
     return (
@@ -73,19 +73,19 @@ const Cart: React.FC = (): JSX.Element => {
             <button
                 type="button"
                 onClick={handleCart}
-                className="relative group flex items-center px-3 py-2 mr-5 cursor-pointer rounded-md border-transparent transition border duration-500 ease-in-out hover:bg-cyan-500"
+                className="group flex items-center justify-center px-[6.3rem] sm:px-4 py-2 mx-auto sm:mr-5 mt-2 sm:mt-0 cursor-pointer border-transparent transition border duration-500 ease-in-out hover:bg-cyan-500"
             >
                 <MdAddShoppingCart className="text-2xl mx-2  transition text duration-500 ease-in-out group-hover:text-white" />
                 <p className="uppercase text-xl transition text duration-500 ease-in-out group-hover:text-white">
                     Cart
                 </p>
             </button>
-            {availableCart ? (
-                <div className="absolute w-[20rem] right-11 top-[5rem] p-2  border-2 border-gray-200 bg-white transition-all duration-500 ease-in-out">
+            {cart ? (
+                <div className="sm:absolute z-20 w-[24rem] sm:w-[20rem] sm:right-11 mt-2 sm:top-[4rem] p-2 border-2 border-gray-200 bg-white">
                     <CartItemsContainer items={products} />
                 </div>
             ) : (
-                ""
+                <></>
             )}
         </>
     );

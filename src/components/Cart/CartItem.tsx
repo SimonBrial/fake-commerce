@@ -11,7 +11,7 @@ const CartItem: React.FC<IContextProducts> = ({
     title,
     brand,
 }): JSX.Element => {
-    console.log(brand);
+    
     return (
         <div className="relative flex gap-2 flex-row items-center p-1 border-2 border-gray-300 hover:bg-gradient-to-r from-gray-200 to-white transition-all">
             {Array.isArray(images) ? (

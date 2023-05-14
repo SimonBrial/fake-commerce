@@ -9,7 +9,7 @@ const ByPriceRange = () => {
     };
 
     return (
-        <form className="border-2 border-gray-200">
+        <form className="border-2 border-gray-200 w-full">
             <h2
                 onClick={handleDropDown}
                 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"

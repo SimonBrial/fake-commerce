@@ -47,12 +47,12 @@ const CounterItems: React.FC<ICounterItems> = ({
     };
 
     return (
-        <div className="flex justify-between w-[14rem] mr-1">
+        <div className="flex justify-between w-full sm:w-[14rem] ml-3 sm:ml-0 sm:mr-1">
             <div className="flex gap-1 flex-col items-center">
                 <p className="text-sm px-2 flex text-gray-400">
                     Stock: {stockAvelable}
                 </p>
-                <div className="flex items-center gap-1 border-2 border-gray-200 text-xl">
+                <div className="flex items-center gap-1 border-2 border-gray-400 text-xl">
                     {decrementAvelable ? (
                         <>
                             <button

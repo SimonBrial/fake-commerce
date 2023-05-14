@@ -2,10 +2,10 @@ import { useContext } from "react";
 import CartItemPage from "../components/Cart/CartItemPage";
 import Summary from "../components/Cart/Summary";
 import AppContext from "../context/appContext/AppContext";
-import { IProducts, IContextProps, IContextProducts } from "../interface/interface";
+import { IProducts, IContextProps } from "../interface/interface";
 
 const CartPage: React.FC = (): JSX.Element => {
-    const productsTest = [
+    /* const productsTest = [
         {
             id: 1,
             title: "iPhone 9",
@@ -58,29 +58,30 @@ const CartPage: React.FC = (): JSX.Element => {
             thumbnail: "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
             images: ["https://i.dummyjson.com/data/products/3/1.jpg"],
         },
-    ];
+    ]; */
 
     const globalContext = useContext(AppContext);
     const { products } = globalContext as IContextProps;
-    console.log(products);
+    //console.log(products);
 
-    //const productsLenght: number = products.length;
     return (
         <div className="relative mx-5">
             <div className="absolute top-[5rem] w-full p-5">
                 {products !== undefined ? (
                     <>
-                        <h1 className="text-4xl mb-3">
-                            Shopping Cart: {products.length}
-                            {products.length > 1 ? " Items" : " Item"}
+                        <h1 className="text-2xl sm:text-4xl mb-3 text-center sm:text-start">
+                            Shopping Cart:{" "}
+                            <span className="text-cyan-400">
+                                {products.length}
+                                {products.length > 1 ? " Items" : " Item"}
+                            </span>
                         </h1>
-                        <span className="absolute h-1 w-[25rem] bg-red-500 top-14"></span>
-                        <div className="w-full flex ">
-                            <div className="w-2/3 mr-2">
+                        {/* <span className="absolute h-1 w-full sm:w-[25rem] bg-red-500 top-14"></span> */}
+                        <div className="w-full flex flex-col sm:flex-row">
+                            <div className="w-full sm:w-2/3 mr-2">
                                 <ol className="flex flex-col gap-2 w-full p-1 border-2 border-gray-200">
                                     {products.map(
                                         (product: IProducts, index: number) => {
-                                            console.log(index)
                                             return (
                                                 <li key={product.id}>
                                                     <CartItemPage
@@ -105,7 +106,7 @@ const CartPage: React.FC = (): JSX.Element => {
                                     )}
                                 </ol>
                             </div>
-                            <div className="w-1/3">
+                            <div className="w-full sm:w-1/3 mt-2 sm:mt-0">
                                 <Summary />
                             </div>
                         </div>

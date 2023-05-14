@@ -25,7 +25,7 @@ const ByPrice: React.FC = (): JSX.Element => {
     };
 
     return (
-        <section className="border-2 border-gray-200 my-2">
+        <section className="mt-2 border-2 border-gray-200 w-full">
             <h2
                 onClick={handleDropDown}
                 className="bg-gray-200 p-2 text-center flex justify-between items-center cursor-pointer"

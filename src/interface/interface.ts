@@ -58,3 +58,15 @@ export interface IBtnInfoCard {
     icon?: ReactNode;
     handleShow?: () => void;
 }
+
+export interface ICategoryHome {
+    iconCategory?: ReactNode;
+    description: string;
+    titleStyles: string;
+    linkStyles?: string;
+    iconStyles?: string;
+    styles: string;
+    img?: string;
+    dir: string;
+    alt?: string;
+}

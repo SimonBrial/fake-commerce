@@ -12,13 +12,13 @@ const CardContainer: React.FC = (): JSX.Element => {
     const { products } = globalContext as IContextProps;
 
     return (
-        <div className="mx-2 p-2 border-2 border-gray-200 flex flex-wrap justify-around">
+        <div className="sm:mx-2 p-2 border-2 border-gray-200 flex flex-wrap justify-around">
             {products !== undefined && products.length > 0 ? (
                 products.map(
                     (product: IProducts | IContextProducts, index: number) => (
                         <article
                             key={product.id}
-                            className="w-[18.5rem] h-full m-2 border-2 border-gray-200 p-2 hover:bg-gray-200 transition-all"
+                            className="w-full sm:w-[18.5rem] h-full m-2 border-2 border-gray-200 p-2 hover:bg-gray-200 transition-all"
                         >
                             <Card
                                 images={product.images}

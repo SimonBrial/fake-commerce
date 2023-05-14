@@ -65,3 +65,4 @@ PROYECTO = E-COMMERCE (Frontend)
           - 
         
 NOTA: La seccion de "Others" no esta desarrollada ya que seria mejor mostrar informacion real en esa seccion, facilitando la seleccion de la imagen del hero y demas.
+NOTA: Breakpoint 375px

@@ -2,7 +2,7 @@ import { FaDollarSign } from "react-icons/fa";
 
 const SummaryCost = () => {
     return (
-        <div className="text-lg">
+        <div className="text-md sm:text-lg">
             <div className="flex justify-between px-2 py-1">
                 <p>Total items to Buy: </p>
                 <span>10</span>
@@ -39,7 +39,7 @@ const SummaryCost = () => {
             </div>
             <hr />
             <div className="flex justify-between px-2 py-1">
-                <p className="text-xl text-red-500">TOTAL PRICE:</p>
+                <p className="text-lg sm:text-xl text-red-500">TOTAL PRICE:</p>
                 <span className="flex items-center">
                     <span>
                         <FaDollarSign />

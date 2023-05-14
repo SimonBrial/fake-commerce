@@ -39,9 +39,8 @@ const Header:React.FC = () => {
 
     return (
         <div className="relative h-[55rem]">
-            <div className="absolute z-20 bottom-0 h-[18rem] w-full bg-gradient-to-t from-neutral-950 from-1% to-transparent"></div>
-            {/* <NavBar /> */}
-            <Hero />
+            {/* <Hero />
+            <div className="absolute z-20 bottom-0 h-[18rem] sm:w-full bg-gradient-to-t from-neutral-950 from-1% to-transparent"></div> */}
         </div>
     );
 

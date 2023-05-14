@@ -1,18 +1,9 @@
 import { Link } from "react-router-dom";
 import { HiOutlineArrowRight } from "react-icons/hi";
 import { ReactNode } from "react";
+import { ICategoryHome } from "../../interface/interface";
 
-interface ICategoryHome {
-    iconCategory?: ReactNode;
-    description: string;
-    titleStyles: string;
-    linkStyles?: string;
-    iconStyles?: string;
-    styles: string;
-    img?: string;
-    dir: string;
-    alt?: string;
-}
+
 
 const CategoryHome: React.FC<ICategoryHome> = ({
     iconCategory,
@@ -21,16 +12,12 @@ const CategoryHome: React.FC<ICategoryHome> = ({
     linkStyles,
     iconStyles,
     styles,
-    img,
     dir,
-    alt,
 }): JSX.Element => {
     return (
         <div className={styles}>
-            {/* <img src={img} alt={alt} /> */}
-            {/* AQUI DEBERIAMOS AÑADIR UN ICONO QUE REPRESENTE LA SECCION */}
             <h2 className={titleStyles}>{description}</h2>
-            <div className={iconStyles}>{iconCategory}</div>
+            <span className={iconStyles}>{iconCategory}</span>
             <Link to={dir} className={linkStyles}>
                 See more <HiOutlineArrowRight className="ml-2" />
             </Link>

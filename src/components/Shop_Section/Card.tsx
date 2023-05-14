@@ -16,14 +16,18 @@ const Card: React.FC<IProducts> = ({
     title,
 }): JSX.Element => {
     const [seeMore, setSeeMore] = useState<boolean>();
-    const infoContainer = document.querySelector("#info-container");
+    //const infoContainer = document.querySelector("#info-container");
+    /* const activeSide: string =
+        "w-[15rem] text-left cursor-default relative transition-all transform  duration-700";
+    const hiddenSide: string =
+        "w-[15rem]  transition-all transform duration-700 text-white -translate-y-24";
+    const activeButton: string =
+        "absolute w-10 h-10 bg-yellow-400 top-0 cursor-pointer transition-all transform duration-700 flex items-center justify-center";
+    const normalButton: string =
+        "absolute w-10 h-10 bg-yellow-400 top-0 cursor-pointer transition-all transform duration-700 flex items-center justify-center translate-y-60"; */
 
     const handleInfo = () => {
         setSeeMore(!seeMore);
-        console.log(infoContainer);
-        /* infoContainer?.classList.add(
-            "translate-y-10 transition translate duration-700 ease-in-out"
-        ); */
     };
     // https://codepen.io/andre2329/pen/PobXMZv?editors=0010
     //Revisar ese enlace para hacer las animaciones de desplazamiento de contenido con tailwind, es el ejemplo perfecto, solo habria que ajustarlo a cada caso que tengo.
@@ -70,35 +74,28 @@ const Card: React.FC<IProducts> = ({
                         />
                     </div>
                 </div>
-                {seeMore ? (
-                    <div
-                        id="info-container"
-                        className="w-[15rem] text-left cursor-default"
-                    >
-                        <hr />
-                        {stock !== undefined ? (
-                            <p>
-                                Stock:{" "}
-                                <span className="text-green-700">
-                                    available
-                                </span>
-                            </p>
-                        ) : (
-                            <p>
-                                Stock:{" "}
-                                <span className="text-red-500">
-                                    not available
-                                </span>
-                            </p>
-                        )}
-                        <p className="text-gray-400">
-                            <span className="text-black">description:</span>{" "}
-                            {description}
+                <div
+                    className={`${
+                        seeMore ? "block" : "hidden"
+                    } cursor-default transition-all transform duration-700 ease-in-out`}
+                >
+                    <hr />
+                    {stock !== undefined ? (
+                        <p className="text-xl">
+                            Stock:{" "}
+                            <span className="text-green-700">available</span>
                         </p>
-                    </div>
-                ) : (
-                    <></>
-                )}
+                    ) : (
+                        <p className="text-xl">
+                            Stock:{" "}
+                            <span className="text-red-500">not available</span>
+                        </p>
+                    )}
+                    <p className="text-gray-400">
+                        <span className="text-black">description:</span>{" "}
+                        {description}
+                    </p>
+                </div>
             </div>
             <div className="mt-2 pb-1">
                 <BtnAddCart
@@ -108,11 +105,6 @@ const Card: React.FC<IProducts> = ({
                     text="add to cart"
                     styleBtn="w-full transition-all hover:bg-emerald-200 bg-emerald-100 text-emerald-700 px-4 py-2 flex items-center justify-center text-center"
                 />
-                {/* <BtnInfoCard
-                    styleBtn="flex items-center transition-all hover:bg-blue-200 bg-blue-100 text-blue-700 px-3 py-1 ml-1 mr-1.5"
-                    description="See more"
-                    handleShow={handleInfo}
-                /> */}
             </div>
         </>
     );
