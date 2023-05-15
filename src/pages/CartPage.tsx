@@ -65,11 +65,11 @@ const CartPage: React.FC = (): JSX.Element => {
     //console.log(products);
 
     return (
-        <div className="relative mx-5">
-            <div className="absolute top-[5rem] w-full p-5">
+        <div className="relative sm:mx-5">
+            <div className="absolute top-[5rem] w-full p-3 sm:p-5">
                 {products !== undefined ? (
                     <>
-                        <h1 className="text-2xl sm:text-4xl mb-3 text-center sm:text-start">
+                        <h1 className="text-4xl mb-3 text-center sm:text-start">
                             Shopping Cart:{" "}
                             <span className="text-cyan-400">
                                 {products.length}

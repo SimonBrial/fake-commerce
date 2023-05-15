@@ -35,7 +35,7 @@ const CartItemPage: React.FC<IProducts> = ({
             <p className="text-gray-400 text-sm block sm:hidden mx-2">
                 {description}
             </p>
-            <span className="absolute -top-2.5 sm:top-2 -right-2.5 sm:right-2 text-xl text-red-500 p-3 rounded-full hover:bg-red-200 hover:text-red-600 transition-all cursor-pointer">
+            <span className="absolute top-0.5 sm:top-2 right-0.5 sm:right-2 text-xl text-red-500 p-3 rounded-full hover:bg-red-200 hover:text-red-600 transition-all cursor-pointer">
                 <AiFillDelete />
             </span>
             <div className="flex justify-center sm:justify-normal sm:items-end">

@@ -12,9 +12,8 @@ import { MdChair, MdClose } from "react-icons/md";
 // Components
 import BtnGeneral from "../Buttons/BtnGeneral";
 import Search from "./Search";
-import SideBar from "./SideBar";
 import Cart from "../Cart/Cart";
-import BtnOthers from "../Buttons/BtnOthers";
+//import BtnOthers from "../Buttons/BtnOthers";
 
 const NavBar: React.FC = (): JSX.Element => {
     const [menu, setMenu] = useState<boolean>(false);
@@ -28,12 +27,18 @@ const NavBar: React.FC = (): JSX.Element => {
             <header
                 className={
                     menu
-                        ? "absolute flex flex-col items-center sm:flex-row sm:items-start py-3 p-6 h-full w-full bg-white sm:bg-transparent z-40"
-                        : "absolute flex flex-col items-center sm:flex-row sm:items-start py-3 p-6 w-full  sm:bg-transparent z-40"
+                        ? "absolute flex flex-col items-center sm:flex-row sm:items-start px-6 w-full bg-white sm:bg-transparent z-30"
+                        : "absolute flex flex-col items-center sm:flex-row sm:items-start px-6 w-full bg-transparent z-30"
                 }
             >
-                <div className="sm:flex w-full">
-                    <div className="flex items-center justify-between w-full sm:w-1/5 ">
+                <nav
+                    className={
+                        menu
+                            ? "z-50 py-3 sm:flex flex-col sm:flex-row justify-between w-screen bg-white sm:bg-transparent"
+                            : "z-50 py-3 sm:flex flex-col sm:flex-row justify-between w-screen sm:bg-transparent"
+                    }
+                >
+                    <div className="sm:bg-transparent flex items-center justify-between w-full px-5 sm:px-0 sm:w-1/5">
                         <Link
                             to={"/"}
                             className="sm:flex items-center gap-1 border-cyan-500 border-2 rounded-lg py-1 px-4 bg-white sm:bg-transparent"
@@ -41,8 +46,12 @@ const NavBar: React.FC = (): JSX.Element => {
                             <span className="font-bold text-4xl uppercase ">
                                 Psy
                             </span>
-                            <span className="font-bold text-3xl ml-1 sm:ml-0">Fake</span>{" "}
-                            <span className="text-xl text-cyan-800 ml-1 sm:ml-0">Store</span>
+                            <span className="font-bold text-3xl ml-1 sm:ml-0">
+                                Fake
+                            </span>{" "}
+                            <span className="text-xl text-cyan-800 ml-1 sm:ml-0">
+                                Store
+                            </span>
                         </Link>
                         <div
                             className="sm:hidden cursor-pointer text-3xl"
@@ -51,7 +60,13 @@ const NavBar: React.FC = (): JSX.Element => {
                             {!menu ? <GiHamburgerMenu /> : <MdClose />}
                         </div>
                     </div>
-                    <div className="hidden sm:flex flex-col sm:flex-row items-center justify-between sm:w-5/6 sm:gap-5">
+                    <div
+                        className={
+                            menu
+                                ? "sm:flex flex-col sm:flex-row items-center justify-between sm:w-5/6 sm:gap-5"
+                                : "hidden sm:flex flex-col sm:flex-row items-center justify-between sm:w-5/6 sm:gap-5"
+                        }
+                    >
                         <BtnGeneral
                             direction={"electronics"}
                             icon={<BsPhoneFill />}
@@ -80,8 +95,14 @@ const NavBar: React.FC = (): JSX.Element => {
                             </div>
                         </div>
                     </div>
-                </div>
-                {menu ? <SideBar menu={menu} handleMenu={handleMenu} /> : <></>}
+                </nav>
+                <span
+                    className={
+                        menu
+                            ? "sm:hidden absolute z-20 top-0 h-[172rem] w-full bg-gray-800 opacity-70"
+                            : "hidden sm:hidden"
+                    }
+                ></span>
             </header>
             <>
                 <Outlet />
@@ -89,8 +110,5 @@ const NavBar: React.FC = (): JSX.Element => {
         </>
     );
 };
-/*
-
-*/
 
 export default NavBar;
