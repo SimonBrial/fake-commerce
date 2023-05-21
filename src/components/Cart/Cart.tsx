@@ -60,12 +60,13 @@ import { IContextProps } from "../../interface/interface";
 ]; */
 
 const Cart: React.FC = (): JSX.Element => {
-    const [cart, setCart] = useState<boolean>(false);
+    const [showCart, setShowCart] = useState<boolean>(false);
     const globalContext = useContext(AppContext)
-    const { products } = globalContext as IContextProps;
+    const {  cart } = globalContext as IContextProps;
     
+    //console.log(cart)
     const handleCart = () => {
-        setCart(!cart);
+        setShowCart(!showCart);
     };
 
     return (
@@ -80,9 +81,9 @@ const Cart: React.FC = (): JSX.Element => {
                     Cart
                 </p>
             </button>
-            {cart ? (
+            {showCart ? (
                 <div className="sm:absolute z-20 w-[24rem] sm:w-[20rem] sm:right-11 mt-2 sm:top-[4rem] p-2 border-2 border-gray-200 bg-white">
-                    <CartItemsContainer items={products} />
+                    <CartItemsContainer items={cart} />
                 </div>
             ) : (
                 <></>

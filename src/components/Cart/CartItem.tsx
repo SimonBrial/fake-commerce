@@ -1,8 +1,13 @@
-import React from "react";
-import BtnAddCart from "../Buttons/BtnAddCart";
-import { TiDelete } from "react-icons/ti";
+// React Hooks
+import { useState, useContext } from "react";
+// React icons
 import { FaDollarSign } from "react-icons/fa";
-import { IContextProducts } from "../../interface/interface";
+import { TiDelete } from "react-icons/ti";
+// Interface & Types
+import { IContextProducts, IContextProps } from "../../interface/interface";
+// Components
+import AppContext from "../../context/appContext/AppContext";
+import BtnAddCart from "../Buttons/BtnAddCart";
 
 const CartItem: React.FC<IContextProducts> = ({
     description,
@@ -11,6 +16,9 @@ const CartItem: React.FC<IContextProducts> = ({
     title,
     brand,
 }): JSX.Element => {
+
+    const globalContext = useContext(AppContext)
+    const {  deleteProduct } = globalContext as IContextProps;
     
     return (
         <div className="relative flex gap-2 flex-row items-center p-1 border-2 border-gray-300 hover:bg-gradient-to-r from-gray-200 to-white transition-all">
@@ -38,6 +46,7 @@ const CartItem: React.FC<IContextProducts> = ({
                 icon={<TiDelete />}
                 styleIcon="text-3xl text-red-500"
                 styleBtn="w-10 h-10 absolute right-1 top-7 hover:bg-red-100 transition-all duration-500 flex items-center justify-center rounded-full"
+                handleAction={deleteProduct}
             />
         </div>
     );

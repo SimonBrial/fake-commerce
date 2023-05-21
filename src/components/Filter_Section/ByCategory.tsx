@@ -1,19 +1,20 @@
 import { useState, useRef } from "react";
-import allCategories from "../../fakeData/all_categories.json";
 import { MdArrowDropDown } from "react-icons/md";
+import { CategoryFilter } from "../../types/types";
 
-const ByCategory = () => {
+const ByCategory: React.FC<CategoryFilter> = ({
+    categoryToSelect,
+}): JSX.Element => {
     const [avelable, setAvelable] = useState<boolean>(false);
     const [categorySeleted, setCategorySeleted] = useState<string>("");
     const [selectedCategoryIndex, setSelectedCategoryIndex] = useState<
         number | null
     >(null);
-    
 
     const handleSelectedCategory = (index: number) => {
-        if (allCategories.length > 0) {
+        if (categoryToSelect.length > 0) {
             setSelectedCategoryIndex(index);
-            setCategorySeleted(allCategories[index])
+            setCategorySeleted(categoryToSelect[index]);
         } else {
             setCategorySeleted("Don't have category");
         }
@@ -43,7 +44,7 @@ const ByCategory = () => {
             </h2>
             <div>
                 {avelable ? (
-                    allCategories.map((category: string, index: number) => {
+                    categoryToSelect.map((category: string, index: number) => {
                         const stylePrice =
                             selectedCategoryIndex === index
                                 ? "m-1 cursor-pointer px-2 py-1 text-center bg-gray-200 transition-all"
@@ -51,11 +52,11 @@ const ByCategory = () => {
 
                         return (
                             <p
+                            onClick={() => handleSelectedCategory(index)}
                                 className={stylePrice}
-                                onClick={() => handleSelectedCategory(index)}
                                 key={index}
                             >
-                                {category}
+                                {category.split("-").join(" ")}
                             </p>
                         );
                     })

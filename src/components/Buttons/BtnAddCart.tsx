@@ -7,9 +7,11 @@ interface IBtnAddCart {
     styleBtn: string;
     icon: ReactNode;
     text?: string;
+    handleAction?: () => void;
 }
 
 const BtnAddCart: React.FC<IBtnAddCart> = ({
+    handleAction,
     styleIcon,
     StyleText,
     styleBtn,
@@ -17,7 +19,7 @@ const BtnAddCart: React.FC<IBtnAddCart> = ({
     text,
 }): JSX.Element => {
     return (
-        <button className={styleBtn}>
+        <button className={styleBtn} onClick={handleAction}>
             <span className={styleIcon}>{icon}</span>
             <p className={StyleText}>{text}</p>
         </button>

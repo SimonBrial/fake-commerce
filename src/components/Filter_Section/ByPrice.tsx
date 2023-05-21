@@ -2,23 +2,24 @@ import { useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 
 const ByPrice: React.FC = (): JSX.Element => {
-    const [price, setPrice] = useState<string | null>();
+    const [priceSelected, setPriceSelected] = useState<string | null>();
     const [selectedPriceIndex, setSelectedPriceIndex] = useState<number | null>(
         null
     );
     const [avelable, setAvelable] = useState<boolean>(false);
 
-    const priceArray: string[] = ["100", "200", "300", "400", "500"];
+    const priceArray: string[] = ["100", "200", "300", "400", "500", "600", "700", "800"];
 
     const handleSelectedPrice = (index: number) => {
+        console.log(index);
         if (priceArray.length > 0) {
-            setPrice(priceArray[index]);
+            setPriceSelected(priceArray[index]);
             setSelectedPriceIndex(index);
         } else {
-            setPrice("Don't have price");
+            setPriceSelected("Don't have price");
         }
     };
-    //console.log(price);
+    //console.log(priceSelected);
 
     const handleDropDown = () => {
         setAvelable(!avelable);
@@ -51,8 +52,8 @@ const ByPrice: React.FC = (): JSX.Element => {
 
                         return (
                             <p
-                                className={stylePrice}
                                 onClick={() => handleSelectedPrice(index)}
+                                className={stylePrice}
                                 key={index}
                             >
                                 {price} $

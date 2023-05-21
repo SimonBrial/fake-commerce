@@ -1,12 +1,31 @@
-import { useState } from "react";
+import { useState, useRef, useContext, useEffect } from "react";
 import { MdArrowDropDown } from "react-icons/md";
+import { AppContext } from "../../context";
+import { IContextProps } from "../../interface/interface";
 
 const ByPriceRange = () => {
     const [avelableRange, setAvelablePrice] = useState<boolean>(false);
+    const globalContext = useContext(AppContext);
+    const { prueba } = globalContext as IContextProps;
+
+    const maxPriceRef = useRef<HTMLInputElement>(null);
+    const minPriceRef = useRef<HTMLInputElement>(null);
+    const priceRange = useRef<{ maxPrice: number; minPrice: number }>({
+        maxPrice: 0,
+        minPrice: 0,
+    });
 
     const handleDropDown = () => {
         setAvelablePrice(!avelableRange);
     };
+
+    const handlePrice = () => {
+        const maxPrice = parseInt(maxPriceRef.current?.value || "0", 10);
+        const minPrice = parseInt(minPriceRef.current?.value || "0", 10);
+        priceRange.current = { maxPrice, minPrice };
+    };
+
+    console.log(priceRange.current)
 
     return (
         <form className="border-2 border-gray-200 w-full">
@@ -31,6 +50,8 @@ const ByPriceRange = () => {
                         <label className="mx-2 w-1/3">Max price</label>
                         <input
                             className="p-1 w-2/3 border-2 border-gray-200"
+                            onChange={handlePrice}
+                            ref={maxPriceRef}
                             type="number"
                             step={50}
                             min={0}
@@ -40,6 +61,8 @@ const ByPriceRange = () => {
                         <label className="mx-2 w-1/3">Max price</label>
                         <input
                             className="p-1 w-2/3 border-2 border-gray-200"
+                            onChange={handlePrice}
+                            ref={minPriceRef}
                             type="number"
                             step={50}
                             min={0}

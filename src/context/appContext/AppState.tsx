@@ -1,17 +1,46 @@
 import { useReducer } from "react";
 import AppContext from "./AppContext";
 import AppReducer from "./AppReducer";
-import { ADD_PRODUCT, CART } from "../actions";
+import { ADD_PRODUCT, CART, FETCH_DATA } from "../actions";
 import { initialState } from "../initialState";
-import { IContextProps } from "../../interface/interface";
+import {
+    IContextProducts,
+    IContextProps,
+    IResponseAPI,
+} from "../../interface/interface";
 
 const AppState: React.FC<IContextProps> = (props) => {
-    //const Appcontext = useContext(AppContext);
     const initialStateReducer = {
-        products: initialState,
+        products: [] as IContextProps[],
+        cart: initialState,
     };
 
     const [state, dispatch] = useReducer(AppReducer, initialStateReducer);
+
+    // Endpoint para solicutar todos los productos para luego irlos filtrando por categorias
+    //  https://dummyjson.com/products?limit=100&skip=0&select=title,price,discountPercentage,description,thumbnail,category,images,rating,stock,brand
+
+    const fetchProducts = async (url: string) => {
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+            //console.log(data.products);
+            dispatch({
+                type: FETCH_DATA,
+                payload: data.products,
+            });
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function prueba(number: any) {
+        return console.log(number)
+    }
+
+    const filterProducts = () => {
+        console.log('From filter products')
+    };
 
     const addProduct = () => {
         console.log(state);
@@ -21,11 +50,19 @@ const AppState: React.FC<IContextProps> = (props) => {
         });
     };
 
+    const deleteProduct = () => {
+        console.log("Deleting product");
+    };
+
     // Definition of the value's types for provider context
     const contextValues: IContextProps = {
         products: state.products,
         cart: state.cart,
+        filterProducts,
+        fetchProducts,
+        deleteProduct,
         addProduct,
+        prueba,
     };
 
     return (

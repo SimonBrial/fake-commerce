@@ -1,5 +1,5 @@
-import { ReactNode } from 'react';
-export interface IProducts {
+import { ReactNode } from "react";
+interface IProducts {
     description?: string;
     thumbnail?: string;
     category?: string;
@@ -12,7 +12,7 @@ export interface IProducts {
     price?: number;
     id?: number;
 }
-export interface IContextProducts {
+interface IContextProducts {
     discountPercentage?: number;
     description?: string;
     thumbnail?: string;
@@ -26,7 +26,7 @@ export interface IContextProducts {
     id?: number;
 }
 
-export interface ICategory {
+interface ICategory {
     creationAt?: string;
     updatedAt?: string;
     image?: string;
@@ -34,14 +34,18 @@ export interface ICategory {
     id?: number;
 }
 
-export interface IContextProps {
-    children?: any; // TODO: Pending for revision
+interface IContextProps {
+    children?: any;
     cart?: IContextProducts[];
     products?: IContextProducts[];
+    fetchProducts?: (urlArray: string) => void;
+    filterProducts?: () => void;
+    deleteProduct?: () => void;
     addProduct?: () => void;
+    prueba?: (number:any) => void;
 }
 
-export interface IBtnSeeMore {
+interface IBtnSeeMore {
     description?: string;
     styleIcon?: string;
     styleText?: string;
@@ -50,7 +54,7 @@ export interface IBtnSeeMore {
     dir: string;
     handleShow?: () => void;
 }
-export interface IBtnInfoCard {
+interface IBtnInfoCard {
     description?: string;
     styleIcon?: string;
     styleText?: string;
@@ -59,7 +63,7 @@ export interface IBtnInfoCard {
     handleShow?: () => void;
 }
 
-export interface ICategoryHome {
+interface ICategoryHome {
     iconCategory?: ReactNode;
     description: string;
     titleStyles: string;
@@ -70,3 +74,37 @@ export interface ICategoryHome {
     dir: string;
     alt?: string;
 }
+
+interface IResponseAPI {
+    products: IContextProducts[];
+    limit: number;
+    total: number;
+    skip: number;
+}
+
+interface IFilterCategory {
+    arrayCategory: string[];
+    filterArray: IContextProducts[];
+}
+
+interface ICategories {
+    [key: string]: string[] | undefined;
+    electronics: string[];
+    furniture: string[];
+    clothes: string[];
+    others?: string[];
+    shoes: string[];
+}
+
+export type {
+    IContextProducts,
+    IFilterCategory,
+    IContextProps,
+    ICategoryHome,
+    IBtnInfoCard,
+    IResponseAPI,
+    IBtnSeeMore,
+    ICategories,
+    ICategory,
+    IProducts,
+};

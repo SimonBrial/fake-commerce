@@ -1,13 +1,20 @@
-import { useState } from "react";
-import CartItem from "./CartItem";
+// React Hooks & React Router dom
+import { useState, useContext } from "react";
+// React icons
 import { FaDollarSign } from "react-icons/fa";
-import BtnSeeMore from "../Buttons/BtnSeeMore";
+// Interface & Types
 import { IContextProducts } from "../../interface/interface";
 import { ProductsTypes } from "../../types/types";
+// Components
+import BtnSeeMore from "../Buttons/BtnSeeMore";
+import CartItem from "./CartItem";
 
 const CartItemsContainer: React.FC<ProductsTypes> = ({
     items,
 }): JSX.Element => {
+
+    
+
     return (
         <>
             {items && items.length > 0 ? (

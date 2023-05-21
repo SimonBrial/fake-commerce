@@ -23,7 +23,7 @@ const Offer = () => {
                 <span className="absolute h-0.5 w-64 z-0 -skew-y-SkewOffer bg-black -bottom-[7.8rem] sm:bottom-[1.5rem] left-[14rem]"></span>
                 <span className="absolute h-0.5 w-28 z-0 -skew-y-SkewOffer bg-black -bottom-[8.4rem] sm:bottom-[1rem] left-[18rem]"></span>
             </div>
-            <div className="text-2xl mb-8 sm:mb-0 h-1/2 sm:h-full sm:w-96 z-30 py-5 text-center flex flex-col justify-between sm:mr-40 ">
+            <div className="text-2xl mb-8 sm:mb-0 h-1/2 sm:h-full sm:w-96 z-20 py-5 text-center flex flex-col justify-between sm:mr-40 ">
                 <p className="text-[2.5rem] bottom-10 sm:top-0">Offer of</p>
                 <span className="text-[10rem] mt-14 sm:top-0">35%</span>
                 <p className="text-[2.5rem] mt-10 sm:top-0">

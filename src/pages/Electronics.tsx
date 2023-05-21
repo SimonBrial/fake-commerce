@@ -1,7 +1,6 @@
 import { DiReact } from "react-icons/di";
-import Footer from "../components/Body/Footer";
-import Offer from "../components/Body/Offer";
-import ShopContainer from "../components/Shop_Section/ShopContainer";
+import { Footer, Offer } from "../components/Body/index";
+import { ShopContainer } from "../components/Shop_Section/index";
 
 const Electronics = () => {
     return (
@@ -11,7 +10,7 @@ const Electronics = () => {
                     src="img/Hero_Sections/electronics_hero.jpg"
                     className="hidden sm:block h-[40rem] sm:h-full"
                 />
-                <div className="absolute z-20 top-[8rem] sm:top-[11rem] 2xl:top-[13rem] sm:left-[15rem] 2xl:left-[24rem] text-[4rem] sm:text-[5rem] w-full m-auto">
+                <div className="absolute z-20 top-[8rem] sm:top-[11rem] 2xl:top-[13rem] sm:left-[15rem] 2xl:left-[24rem] text-[4rem] sm:text-[5rem] m-auto w-full sm:w-0">
                     <div className="relative sm:w-[40rem] h-[25rem] flex justify-center">
                         <h1 className="absolute sm:-top-[.5rem] sm:right-[5rem]">
                             Let us show you

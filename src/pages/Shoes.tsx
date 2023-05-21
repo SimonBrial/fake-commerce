@@ -7,8 +7,11 @@ const Shoes = () => {
     return (
         <div>
             <div className="relative h-[40rem] sm:h-full bg-red-500 sm:bg-transparent">
-                <img src="img/Hero_Sections/shoes_hero.jpg" className="hidden sm:block h-[40rem] sm:h-full" />
-                <div className="absolute z-20 text-[4rem] sm:text-[5rem] cursor-default top-[2rem] sm:top-[8.5rem] 2xl:top-[10rem] sm:left-[1rem] 2xl:left-[9rem] w-full">
+                <img
+                    src="img/Hero_Sections/shoes_hero.jpg"
+                    className="hidden sm:block h-[40rem] sm:h-full"
+                />
+                <div className="absolute z-20 text-[4rem] sm:text-[5rem] cursor-default top-[2rem] sm:top-[8.5rem] 2xl:top-[10rem] sm:left-[1rem] 2xl:left-[9rem] w-full sm:w-0">
                     <div className="relative sm:w-[40rem] h-[25rem] flex justify-center">
                         <h1 className="absolute sm:-right-[5rem] top-[7rem] sm:top-0">
                             Let us show you

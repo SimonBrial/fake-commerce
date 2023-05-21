@@ -1,7 +1,6 @@
 import { DiReact } from "react-icons/di";
-import Footer from "../components/Body/Footer";
-import Offer from "../components/Body/Offer";
-import ShopContainer from "../components/Shop_Section/ShopContainer";
+import { Footer, Offer } from "../components/Body/index";
+import { ShopContainer } from "../components/Shop_Section/index";
 
 const Clothes: React.FC = (): JSX.Element => {
     return (
@@ -11,7 +10,7 @@ const Clothes: React.FC = (): JSX.Element => {
                     src="img/Hero_Sections/clothes_hero.jpg"
                     className="hidden sm:block h-[40rem] sm:h-full"
                 />
-                <div className="absolute z-20 top-[10rem] sm:top-[11rem] 2xl:top-[14rem] left-0 sm:left-[4rem] 2xl:left-[10rem] text-[4rem] sm:text-[5rem] w-full">
+                <div className="absolute z-20 top-[10rem] sm:top-[11rem] 2xl:top-[14rem] left-0 sm:left-[4rem] 2xl:left-[10rem] text-[4rem] sm:text-[5rem] w-full sm:w-0">
                     <div className="relative sm:w-[40rem] h-[25rem] flex justify-center">
                         <h1 className="absolute sm:right-[6rem] 2xl:right-[4rem]">
                             Let us show you
@@ -32,7 +31,7 @@ const Clothes: React.FC = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <ShopContainer />
+            <ShopContainer /* products={products} */ />
             <Offer />
             <Footer />
         </div>

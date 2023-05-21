@@ -5,8 +5,11 @@ import ByPrice from "./ByPrice";
 import ByPriceRange from "./ByPriceRange";
 import ByCategory from "./ByCategory";
 
+import useCurrentCategory from "../../hooks/useCurrentCategory";
+
 const Filters: React.FC = (): JSX.Element => {
     const [filterShow, setFilterShow] = useState<boolean>(false);
+    const { categoriesFilter } = useCurrentCategory();
 
     const handleFilterShow = () => {
         setFilterShow(!filterShow);
@@ -29,9 +32,17 @@ const Filters: React.FC = (): JSX.Element => {
                     <MdArrowDropDown />
                 </span>
             </div>
-            <div className={filterShow ? "block w-full" : "hidden sm:block w-full"}>
+            <div
+                className={
+                    filterShow ? "block w-full" : "hidden sm:block w-full"
+                }
+            >
                 <ByPriceRange />
-                <ByCategory />
+                {categoriesFilter !== null ? (
+                    <ByCategory categoryToSelect={categoriesFilter} />
+                ) : (
+                    <p>There are no categories avalible to filter!</p>
+                )}
                 <ByPrice />
                 <BtnFilter />
             </div>

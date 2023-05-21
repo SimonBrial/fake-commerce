@@ -1,14 +1,16 @@
 import { DiReact } from "react-icons/di";
-import Footer from "../components/Body/Footer";
-import Offer from "../components/Body/Offer";
-import ShopContainer from "../components/Shop_Section/ShopContainer";
+import { Footer, Offer } from "../components/Body/index";
+import { ShopContainer } from "../components/Shop_Section/index";
 
 const Furniture: React.FC = (): JSX.Element => {
     return (
         <div>
             <div className="relative h-[40rem] sm:h-full bg-emerald-500 sm:bg-transparent">
-                <img src="img/Hero_Sections/furniture_hero.jpg" className="hidden sm:block h-[40rem] sm:h-full" />
-                <div className="absolute z-20 w-full top-[8rem] sm:top-[10rem] 2xl:top-[15rem] sm:left-[4rem] 2xl:left-[10rem] text-[4rem] sm:text-[5rem] cursor-default flex justify-center">
+                <img
+                    src="img/Hero_Sections/furniture_hero.jpg"
+                    className="hidden sm:block h-[40rem] sm:h-full"
+                />
+                <div className="absolute z-20 top-[8rem] sm:top-[10rem] 2xl:top-[15rem] sm:-left-[16rem] 2xl:-left-[18rem] text-[4rem] sm:text-[5rem] cursor-default flex justify-center w-full">
                     <div className="relative w-full sm:w-[40rem] h-[25rem] flex justify-center">
                         <h1 className="absolute sm:right-[0rem]">
                             Let us show you

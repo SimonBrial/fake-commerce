@@ -14,7 +14,7 @@ const BtnSeeMore: React.FC<IBtnSeeMore> = ({
 
     /* const prueba = useNavigate();
     const handleNav = (dir: string) => {
-        console.log(dir)
+        //console.log(dir)
         prueba(dir)
     } */
 
