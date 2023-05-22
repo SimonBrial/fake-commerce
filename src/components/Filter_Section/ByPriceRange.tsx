@@ -1,12 +1,13 @@
 import { useState, useRef, useContext, useEffect } from "react";
 import { MdArrowDropDown } from "react-icons/md";
-import { AppContext } from "../../context";
-import { IContextProps } from "../../interface/interface";
+import { SelectedPriceRange } from "../../types/types";
 
-const ByPriceRange = () => {
+const ByPriceRange: React.FC<SelectedPriceRange> = ({
+    priceRangeData,
+}): JSX.Element => {
     const [avelableRange, setAvelablePrice] = useState<boolean>(false);
-    const globalContext = useContext(AppContext);
-    const { prueba } = globalContext as IContextProps;
+    /* const globalContext = useContext(AppContext);
+    const { updatePriceRange } = globalContext as IContextProps; */
 
     const maxPriceRef = useRef<HTMLInputElement>(null);
     const minPriceRef = useRef<HTMLInputElement>(null);
@@ -23,9 +24,9 @@ const ByPriceRange = () => {
         const maxPrice = parseInt(maxPriceRef.current?.value || "0", 10);
         const minPrice = parseInt(minPriceRef.current?.value || "0", 10);
         priceRange.current = { maxPrice, minPrice };
+        //console.log(priceRange.current);
+        priceRangeData({ maxPrice, minPrice });
     };
-
-    console.log(priceRange.current)
 
     return (
         <form className="border-2 border-gray-200 w-full">
@@ -52,17 +53,19 @@ const ByPriceRange = () => {
                             className="p-1 w-2/3 border-2 border-gray-200"
                             onChange={handlePrice}
                             ref={maxPriceRef}
+                            defaultValue={0}
                             type="number"
                             step={50}
                             min={0}
                         />
                     </div>
                     <div className="flex items-center my-2 px-2">
-                        <label className="mx-2 w-1/3">Max price</label>
+                        <label className="mx-2 w-1/3">Min price</label>
                         <input
                             className="p-1 w-2/3 border-2 border-gray-200"
                             onChange={handlePrice}
                             ref={minPriceRef}
+                            defaultValue={0}
                             type="number"
                             step={50}
                             min={0}

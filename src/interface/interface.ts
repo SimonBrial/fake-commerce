@@ -1,4 +1,5 @@
 import { ReactNode } from "react";
+import { Range, FilterProductsTypes } from "../types/types";
 interface IProducts {
     description?: string;
     thumbnail?: string;
@@ -39,10 +40,12 @@ interface IContextProps {
     cart?: IContextProducts[];
     products?: IContextProducts[];
     fetchProducts?: (urlArray: string) => void;
-    filterProducts?: () => void;
     deleteProduct?: () => void;
     addProduct?: () => void;
-    prueba?: (number:any) => void;
+    filterProducts?: ({ data }: FilterProductsTypes) => void;
+    /* updatePriceRange?: (numberA: any, numberB: any) => any;
+    updateSelectedPrice?: (selectedPrice:string) => void;
+    updateSelectedCategory?: (selectedCategory: string) => void; */
 }
 
 interface IBtnSeeMore {
@@ -96,9 +99,16 @@ interface ICategories {
     shoes: string[];
 }
 
+interface IFilterProducts {
+    priceData?: string;
+    categoryData?: string;
+    priceRangeData?: Range;
+}
+
 export type {
     IContextProducts,
     IFilterCategory,
+    IFilterProducts,
     IContextProps,
     ICategoryHome,
     IBtnInfoCard,

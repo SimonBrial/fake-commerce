@@ -1,4 +1,4 @@
-import { IContextProducts } from "../interface/interface";
+import { IContextProducts, IFilterProducts } from "../interface/interface";
 
 type InitialStateType = IContextProducts[];
 
@@ -11,8 +11,9 @@ type ProductsContextTypes = {
 
 type CategoryArray = string[];
 
-type CategoryFilter = {
+type CategoryToFilter = {
     categoryToSelect: string[];
+    categorySelectData: (category: string) => void;
 };
 
 type CurrentCategoryHook = {
@@ -28,13 +29,38 @@ type FetchDataHook = {
     location: string;
 };
 
+type SelectedPrice = {
+    priceData: (price: string) => void;
+};
+type Range = {
+    maxPrice: number;
+    minPrice: number;
+};
+
+type SelectedPriceRange = {
+    priceRangeData: (priceRange: Range) => void;
+};
+
+type BtnFilterType = {
+    handleSubmit: () => void;
+};
+
+type FilterProductsTypes = {
+    data: IFilterProducts;
+};
+
 export type {
-    InitialStateType,
-    ProductsTypes,
     ProductsContextTypes,
-    CategoryArray,
-    CategoryFilter,
     CurrentCategoryHook,
+    FilterProductsTypes,
+    SelectedPriceRange,
+    InitialStateType,
+    CategoryToFilter,
+    ProductsTypes,
+    CategoryArray,
     ArrayToFilter,
     FetchDataHook,
+    SelectedPrice,
+    BtnFilterType,
+    Range,
 };

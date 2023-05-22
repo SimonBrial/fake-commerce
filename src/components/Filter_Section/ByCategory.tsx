@@ -1,12 +1,13 @@
 import { useState, useRef } from "react";
 import { MdArrowDropDown } from "react-icons/md";
-import { CategoryFilter } from "../../types/types";
+import { CategoryToFilter } from "../../types/types";
 
-const ByCategory: React.FC<CategoryFilter> = ({
+const ByCategory: React.FC<CategoryToFilter> = ({
     categoryToSelect,
+    categorySelectData,
 }): JSX.Element => {
     const [avelable, setAvelable] = useState<boolean>(false);
-    const [categorySeleted, setCategorySeleted] = useState<string>("");
+    const [categorySelected, setCategorySelected] = useState<string>("");
     const [selectedCategoryIndex, setSelectedCategoryIndex] = useState<
         number | null
     >(null);
@@ -14,12 +15,13 @@ const ByCategory: React.FC<CategoryFilter> = ({
     const handleSelectedCategory = (index: number) => {
         if (categoryToSelect.length > 0) {
             setSelectedCategoryIndex(index);
-            setCategorySeleted(categoryToSelect[index]);
+            setCategorySelected(categoryToSelect[index]);
+            categorySelectData(categoryToSelect[index]);
         } else {
-            setCategorySeleted("Don't have category");
+            setCategorySelected("Don't have category");
         }
     };
-    //console.log(categorySeleted);
+    //console.log(categorySelected);
 
     const handleDropDown = () => {
         setAvelable(!avelable);
@@ -52,7 +54,7 @@ const ByCategory: React.FC<CategoryFilter> = ({
 
                         return (
                             <p
-                            onClick={() => handleSelectedCategory(index)}
+                                onClick={() => handleSelectedCategory(index)}
                                 className={stylePrice}
                                 key={index}
                             >

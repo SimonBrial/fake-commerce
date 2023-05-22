@@ -3,11 +3,8 @@ import AppContext from "./AppContext";
 import AppReducer from "./AppReducer";
 import { ADD_PRODUCT, CART, FETCH_DATA } from "../actions";
 import { initialState } from "../initialState";
-import {
-    IContextProducts,
-    IContextProps,
-    IResponseAPI,
-} from "../../interface/interface";
+import { IContextProps, IFilterProducts } from "../../interface/interface";
+import { FilterProductsTypes } from "../../types/types";
 
 const AppState: React.FC<IContextProps> = (props) => {
     const initialStateReducer = {
@@ -32,14 +29,22 @@ const AppState: React.FC<IContextProps> = (props) => {
         } catch (error) {
             console.log(error);
         }
-    }
+    };
 
-    function prueba(number: any) {
-        return console.log(number)
-    }
+    const filterProducts = ({ data }: FilterProductsTypes) => {
+        // `Price: ${priceData}, Category: ${categoryData}, Range of Price: ${priceRangeData}`
+        const { priceData, categoryData, priceRangeData } = data;
 
-    const filterProducts = () => {
-        console.log('From filter products')
+        if (priceData !== undefined) {
+            console.log(`Price: ${priceData}`);
+        }
+        if (categoryData !== undefined) {
+            console.log(`Category: ${categoryData}`);
+        }
+        if (priceRangeData !== undefined) {
+            const { maxPrice, minPrice } = priceRangeData;
+            console.log(`Range of Price: ${maxPrice} - ${minPrice}`);
+        }
     };
 
     const addProduct = () => {
@@ -62,7 +67,6 @@ const AppState: React.FC<IContextProps> = (props) => {
         fetchProducts,
         deleteProduct,
         addProduct,
-        prueba,
     };
 
     return (

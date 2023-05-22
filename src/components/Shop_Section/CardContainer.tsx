@@ -14,7 +14,7 @@ const CardContainer: React.FC<ProductsContextTypes> = ({
                     products.map((product: IContextProducts) => (
                         <div
                             key={product.id}
-                            className="w-full sm:w-[18.5rem] h-full sm:h-[27rem] m-2 border-2 border-gray-200 p-2 hover:bg-gray-200 transition-all"
+                            className="w-full sm:w-[18.5rem] h-full m-2 border-2 border-gray-200 p-2 hover:bg-gray-200 transition-all"
                         >
                             <Card
                                 images={product.images}

@@ -1,15 +1,14 @@
-import { useContext } from "react";
 import { MdFilterAlt } from "react-icons/md";
-import { AppContext } from "../../context";
-import { IContextProps } from "../../interface/interface";
+import { BtnFilterType } from "../../types/types";
+/* type BtnFilter = {
+    handleSubmit: () => void;
+}; */
 
-const BtnFilter: React.FC = (): JSX.Element => {
-    const globalContext = useContext(AppContext);
-    const { filterProducts } = globalContext as IContextProps;
+const BtnFilter: React.FC<BtnFilterType> = ({ handleSubmit }): JSX.Element => {
 
     return (
         <button
-            onClick={filterProducts}
+            onClick={handleSubmit}
             className="bg-gray-200 w-full mt-2 p-2 text-xl hover:bg-gray-300 transition-all flex justify-center items-center"
         >
             Apply filters{" "}

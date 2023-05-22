@@ -1,20 +1,34 @@
 import { useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
+import { SelectedPrice } from "../../types/types";
 
-const ByPrice: React.FC = (): JSX.Element => {
+const ByPrice: React.FC<SelectedPrice> = ({ priceData }): JSX.Element => {
     const [priceSelected, setPriceSelected] = useState<string | null>();
     const [selectedPriceIndex, setSelectedPriceIndex] = useState<number | null>(
-        null
+        0
     );
     const [avelable, setAvelable] = useState<boolean>(false);
 
-    const priceArray: string[] = ["100", "200", "300", "400", "500", "600", "700", "800"];
-
+    const priceArray: string[] = [
+        "0",
+        "100",
+        "200",
+        "300",
+        "400",
+        "500",
+        "600",
+        "700",
+        "800",
+    ];
+    // Pendiente: se debe conservar el valor que se introdujo, cuando se cierra el dropdown, se deja de observar el valor pero sigue estando en el estado
     const handleSelectedPrice = (index: number) => {
-        console.log(index);
         if (priceArray.length > 0) {
+            //console.log(priceArray[index])
             setPriceSelected(priceArray[index]);
             setSelectedPriceIndex(index);
+            if (priceArray[index] !== "0") {
+                priceData(priceArray[index]);
+            }
         } else {
             setPriceSelected("Don't have price");
         }

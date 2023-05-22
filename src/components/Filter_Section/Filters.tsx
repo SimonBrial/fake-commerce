@@ -1,18 +1,58 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { MdArrowDropDown } from "react-icons/md";
-import BtnFilter from "../Buttons/BtnFilter";
-import ByPrice from "./ByPrice";
-import ByPriceRange from "./ByPriceRange";
-import ByCategory from "./ByCategory";
-
-import useCurrentCategory from "../../hooks/useCurrentCategory";
+import { BtnFilter } from "../Buttons/index";
+import { ByPrice, ByPriceRange, ByCategory } from "./index";
+import { AppContext } from "../../context";
+import { useCurrentCategory } from "../../hooks/index";
+import { Range, FilterProductsTypes } from "../../types/types";
+import { IContextProps, IFilterProducts } from "../../interface/interface";
 
 const Filters: React.FC = (): JSX.Element => {
+    const globalContext = useContext(AppContext);
+    const { filterProducts } = globalContext as IContextProps;
+
     const [filterShow, setFilterShow] = useState<boolean>(false);
+    const [priceRangeData, setPriceRangeData] = useState<Range | undefined>({
+        maxPrice: 0,
+        minPrice: 0,
+    });
+    //const { maxPrice, minPrice } = priceRangeData;
+    //console.log("Select a price range ($)", maxPrice, minPrice);
+
+    const [priceData, setPriceData] = useState<string | null>(null);
+    //console.log("Select a price ($)", priceData);
+
+    const [categoryData, setCategoryData] = useState<string>("");
+    //console.log("Select a category", categoryData);
+
     const { categoriesFilter } = useCurrentCategory();
 
     const handleFilterShow = () => {
         setFilterShow(!filterShow);
+    };
+
+    const handleSubmitData = () => {
+        //event: React.FormEvent
+        //event.preventDefault();
+        if (filterProducts !== undefined) {
+            if (
+                priceData !== null &&
+                categoryData !== undefined &&
+                priceRangeData !== undefined
+            ) {
+                const paramsToFilter: IFilterProducts = {
+                    priceData,
+                    categoryData,
+                    priceRangeData,
+                };
+
+                const data: FilterProductsTypes = {
+                    data: paramsToFilter,
+                };
+                
+                filterProducts(data);
+            }
+        }
     };
 
     return (
@@ -37,14 +77,17 @@ const Filters: React.FC = (): JSX.Element => {
                     filterShow ? "block w-full" : "hidden sm:block w-full"
                 }
             >
-                <ByPriceRange />
+                <ByPriceRange priceRangeData={setPriceRangeData} />
                 {categoriesFilter !== null ? (
-                    <ByCategory categoryToSelect={categoriesFilter} />
+                    <ByCategory
+                        categoryToSelect={categoriesFilter}
+                        categorySelectData={setCategoryData}
+                    />
                 ) : (
-                    <p>There are no categories avalible to filter!</p>
+                    <p>There are no categories available to filter!</p>
                 )}
-                <ByPrice />
-                <BtnFilter />
+                <ByPrice priceData={setPriceData} />
+                <BtnFilter handleSubmit={handleSubmitData} />
             </div>
         </aside>
     );
