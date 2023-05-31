@@ -1,28 +1,41 @@
-import { useEffect, useContext } from "react";
-import { IContextProps } from "../../interface/interface";
+import { useState, useEffect, useContext } from "react";
+import { useLocation } from "react-router-dom";
+import { IContextProps, IFilterElement } from "../../interface/interface";
 import { Filters } from "../Filter_Section/index";
 import { CardContainer } from "./index";
 import { AppContext } from "../../context/index";
-import { useCurrentCategory, useFilterCategories } from "../../hooks";
+import {
+    useCurrentCategory,
+    useFilterCategories,
+    useFilter,
+} from "../../hooks";
 
 const ShopContainer = () => {
-    const globalContext = useContext(AppContext);
-    const { products, fetchProducts } = globalContext as IContextProps;
+    const allProductsEndpoint = import.meta.env.VITE_URL ;
 
+    const globalContext = useContext(AppContext);
+    const { products, filterData, fetchProducts } =
+        globalContext as IContextProps;
+
+    const [categoryToFilter, setCategoryToFilter] = useState<string>();
     const { categoriesFilter, section } = useCurrentCategory();
+    
+    useEffect(() => {
+        fetchProducts?.(allProductsEndpoint);
+        setCategoryToFilter(undefined);
+    }, [section]);
 
     const { data } = useFilterCategories({
-        filterArray: products ?? [],
         arrayCategory: categoriesFilter,
+        filterArray: products ?? [],
     });
 
-    //console.log(data)
-
-    useEffect(() => {
-        const allProductsEndpoint =
-            "https://dummyjson.com/products?limit=100&skip=0&select=title,price,discountPercentage,description,thumbnail,category,images,rating,stock,brand";
-        fetchProducts?.(allProductsEndpoint);
-    }, [section]);
+    const paramsHookFilter: IFilterElement = {
+        elementArray: data || [],
+        categorySelected:
+            typeof filterData === "string" ? filterData : categoryToFilter,
+    };
+    const { productsFilter } = useFilter(paramsHookFilter);
 
     return (
         <div className="p-2 my-2 border-2 border-gray-200 flex flex-col sm:flex-row items- justify-center">
@@ -30,7 +43,7 @@ const ShopContainer = () => {
                 <Filters />
             </div>
             <div className="w-full sm:w-4/5">
-                <CardContainer products={data} />
+                <CardContainer products={productsFilter} />
             </div>
         </div>
     );

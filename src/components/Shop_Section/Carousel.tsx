@@ -1,11 +1,6 @@
 import { useState, useRef } from "react";
+import { ICarouselProps } from "../../interface/interface";
 import { BsChevronCompactLeft, BsChevronCompactRight } from "react-icons/bs";
-
-interface ICarouselProps {
-    images: string[];
-    width: number;
-    height: number;
-}
 
 const Carousel = ({ images, width, height }: ICarouselProps) => {
     const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -54,18 +49,11 @@ const Carousel = ({ images, width, height }: ICarouselProps) => {
                     />
                 ))}
             </div>
-            {/* top-1/3 */}
             <div className="absolute w-full top-[7rem] flex justify-between">
-                <button
-                    className="text-[2rem] -ml-4 z-20"
-                    onClick={handlePrev}
-                >
+                <button className="text-[2rem] -ml-4 z-20" onClick={handlePrev}>
                     <BsChevronCompactLeft className="hover:scale-110 transition-all" />
                 </button>
-                <button
-                    className="text-[2rem] -mr-2 z-20"
-                    onClick={handleNext}
-                >
+                <button className="text-[2rem] -mr-2 z-20" onClick={handleNext}>
                     <BsChevronCompactRight className="hover:scale-110 transition-all" />
                 </button>
             </div>

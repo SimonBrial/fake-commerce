@@ -11,9 +11,8 @@ import { MdChair, MdClose } from "react-icons/md";
 
 // Components
 import BtnGeneral from "../Buttons/BtnGeneral";
-import Search from "./Search";
+//import Search from "./Search";
 import Cart from "../Cart/Cart";
-//import BtnOthers from "../Buttons/BtnOthers";
 
 const NavBar: React.FC = (): JSX.Element => {
     const [menu, setMenu] = useState<boolean>(false);
@@ -87,9 +86,8 @@ const NavBar: React.FC = (): JSX.Element => {
                             icon={<FaShoePrints />}
                             text={"Shoes"}
                         />
-                        {/* <BtnOthers /> */}
                         <div className="flex flex-col sm:flex-row items-center justify-items-center gap-1 sm:gap-5">
-                            <Search />
+                            {/* <Search /> */}
                             <div className="sm:relative">
                                 <Cart />
                             </div>

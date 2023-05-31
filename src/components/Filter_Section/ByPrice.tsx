@@ -2,35 +2,25 @@ import { useState } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { SelectedPrice } from "../../types/types";
 
-const ByPrice: React.FC<SelectedPrice> = ({ priceData }): JSX.Element => {
-    const [priceSelected, setPriceSelected] = useState<string | null>();
+const ByPrice: React.FC<SelectedPrice> = ({ priceFilter }): JSX.Element => {
+    const [priceSelected, setPriceSelected] = useState<number | null>();
     const [selectedPriceIndex, setSelectedPriceIndex] = useState<number | null>(
         0
     );
     const [avelable, setAvelable] = useState<boolean>(false);
 
-    const priceArray: string[] = [
-        "0",
-        "100",
-        "200",
-        "300",
-        "400",
-        "500",
-        "600",
-        "700",
-        "800",
-    ];
+    const priceArray: number[] = [0, 100, 200, 300, 400, 500, 600, 700, 800, 900];
+
     // Pendiente: se debe conservar el valor que se introdujo, cuando se cierra el dropdown, se deja de observar el valor pero sigue estando en el estado
     const handleSelectedPrice = (index: number) => {
         if (priceArray.length > 0) {
             //console.log(priceArray[index])
             setPriceSelected(priceArray[index]);
             setSelectedPriceIndex(index);
-            if (priceArray[index] !== "0") {
-                priceData(priceArray[index]);
+            if (priceArray[index] !== 0) {
+                const price:number = priceArray[index]
+                priceFilter(price);
             }
-        } else {
-            setPriceSelected("Don't have price");
         }
     };
     //console.log(priceSelected);
@@ -58,7 +48,7 @@ const ByPrice: React.FC<SelectedPrice> = ({ priceData }): JSX.Element => {
             </h2>
             <div>
                 {avelable ? (
-                    priceArray.map((price: string, index: number) => {
+                    priceArray.map((price: number, index: number) => {
                         const stylePrice =
                             selectedPriceIndex === index
                                 ? "m-1 cursor-pointer px-2 py-1 text-center bg-gray-200 transition-all"

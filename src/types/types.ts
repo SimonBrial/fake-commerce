@@ -30,7 +30,7 @@ type FetchDataHook = {
 };
 
 type SelectedPrice = {
-    priceData: (price: string) => void;
+    priceFilter: (price: number) => void;
 };
 type Range = {
     maxPrice: number;
@@ -49,13 +49,25 @@ type FilterProductsTypes = {
     data: IFilterProducts;
 };
 
+type SelectCategoryTypes = {
+    category: string[] | undefined,
+    currentPage: string
+}
+
+type DataLengthTypes = {
+    arrayWithoutFilter: IContextProducts[];
+    arrayFiltered: IContextProducts[];
+};
+
 export type {
     ProductsContextTypes,
     CurrentCategoryHook,
     FilterProductsTypes,
+    SelectCategoryTypes,
     SelectedPriceRange,
     InitialStateType,
     CategoryToFilter,
+    DataLengthTypes,
     ProductsTypes,
     CategoryArray,
     ArrayToFilter,

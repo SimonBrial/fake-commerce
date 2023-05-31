@@ -1,14 +1,5 @@
 import React, { ReactNode } from "react";
-//import { BsCartPlus } from "react-icons/bs";
-
-interface IBtnAddCart {
-    styleIcon: string;
-    StyleText?: string;
-    styleBtn: string;
-    icon: ReactNode;
-    text?: string;
-    handleAction?: () => void;
-}
+import { IBtnAddCart } from "../../interface/interface";
 
 const BtnAddCart: React.FC<IBtnAddCart> = ({
     handleAction,

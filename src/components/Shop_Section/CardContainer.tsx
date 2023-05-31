@@ -1,14 +1,12 @@
-import { useState, useEffect, useContext } from "react";
-import { IContextProps, IContextProducts } from "../../interface/interface";
+import { IContextProducts } from "../../interface/interface";
 import { ProductsContextTypes } from "../../types/types";
-import { Card, Pagination } from "./index";
+import { Card } from "./index";
 
 const CardContainer: React.FC<ProductsContextTypes> = ({
     products,
 }): JSX.Element => {
-    //console.log(products)
     return (
-        <section className="sm:mx-2 p-2 border-2 border-gray-200 flex flex-col justify-center">
+        <section className="sm:mx-2 p-2 border-2 border-gray-200 flex flex-col justify-center items-center">
             <div className="flex flex-wrap">
                 {products !== undefined && products.length > 0 ? (
                     products.map((product: IContextProducts) => (
@@ -23,6 +21,7 @@ const CardContainer: React.FC<ProductsContextTypes> = ({
                                 rating={product.rating}
                                 description={product.description}
                                 stock={product.stock}
+                                id={product.id}
                             />
                         </div>
                     ))
@@ -31,13 +30,6 @@ const CardContainer: React.FC<ProductsContextTypes> = ({
                 )}
             </div>
             <div className="pt-5 pb-2 flex flex-col items-center">
-                <Pagination
-                    postsPerPage={10}
-                    totalPosts={100}
-                    paginateFront={2}
-                    paginateBack={0}
-                    currentPage={1}
-                />
             </div>
         </section>
     );

@@ -13,8 +13,6 @@ const CartItemsContainer: React.FC<ProductsTypes> = ({
     items,
 }): JSX.Element => {
 
-    
-
     return (
         <>
             {items && items.length > 0 ? (
@@ -29,6 +27,7 @@ const CartItemsContainer: React.FC<ProductsTypes> = ({
                                         price={item.price}
                                         title={item.title}
                                         brand={item.brand}
+                                        id={item.id}
                                     />
                                 </li>
                             );

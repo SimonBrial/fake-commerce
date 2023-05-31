@@ -81,7 +81,7 @@ PROYECTO = E-COMMERCE (Frontend)
           ✅ Para el consumo de la API, se debe hacer por cada categoria y cada seccion debe realizar las peticiones segun sea el nombre, cabe mencionar que en cada seccion, se deben filtrar por categorias asociadas a la misma.
             * Se debe hacer una logica para hacer el consumo de la API por cada seccion, mediante un filtrado.
           - Implementar la logica de filtrado en el seccion de de los productos.
-          - 
+          - Endpoint para solicitar todos los productos para luego irlos filtrando por categorias: https://dummyjson.com/products?limit=100&skip=0&select=title,price,discountPercentage,description,thumbnail,category,images,rating,stock,brand
         -------------------------------------------------- Logica --------------------------------------------------
         ------------------------------------------- Pendientes por hacer -------------------------------------------
 

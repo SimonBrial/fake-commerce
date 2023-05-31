@@ -1,4 +1,4 @@
-import { useState, useRef, useContext, useEffect } from "react";
+import { useState, useRef } from "react";
 import { MdArrowDropDown } from "react-icons/md";
 import { SelectedPriceRange } from "../../types/types";
 
@@ -6,8 +6,6 @@ const ByPriceRange: React.FC<SelectedPriceRange> = ({
     priceRangeData,
 }): JSX.Element => {
     const [avelableRange, setAvelablePrice] = useState<boolean>(false);
-    /* const globalContext = useContext(AppContext);
-    const { updatePriceRange } = globalContext as IContextProps; */
 
     const maxPriceRef = useRef<HTMLInputElement>(null);
     const minPriceRef = useRef<HTMLInputElement>(null);
@@ -24,7 +22,6 @@ const ByPriceRange: React.FC<SelectedPriceRange> = ({
         const maxPrice = parseInt(maxPriceRef.current?.value || "0", 10);
         const minPrice = parseInt(minPriceRef.current?.value || "0", 10);
         priceRange.current = { maxPrice, minPrice };
-        //console.log(priceRange.current);
         priceRangeData({ maxPrice, minPrice });
     };
 

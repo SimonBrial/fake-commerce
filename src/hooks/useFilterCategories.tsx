@@ -6,7 +6,8 @@ const useFilterCategories = ({
     filterArray,
 }: IFilterCategory): { data: IContextProducts[] } => {
     let filteredProducts: IContextProducts[] = [];
-    arrayCategory.forEach((category: string) => {
+
+    arrayCategory.map((category: string) => {
         const equalElements = filterArray.filter(
             (product: IContextProducts) => product.category == category
         );

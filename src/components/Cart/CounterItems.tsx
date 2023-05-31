@@ -1,95 +1,85 @@
-import { useState, useEffect } from "react";
-import { FaDollarSign } from "react-icons/fa";
-import { discount, notDiscount, stockCount } from "../../utils/utils";
-
-interface ICounterItems {
-    price: number;
-    stock: number;
-}
+import { useState, useEffect, useContext } from "react";
+import { AppContext } from "../../context";
+import { discount, notDiscount, totalItems } from "../../utils/utils";
+import { ICounterItems, IContextProps } from "../../interface/interface";
+import { Counter, PriceTotalItem } from "./index";
 
 const CounterItems: React.FC<ICounterItems> = ({
     price,
     stock,
+    id,
 }): JSX.Element => {
-    const [count, setCount] = useState<number>(1);
+    const globalContext = useContext(AppContext);
+    const { counterProductDecrement, counterProductIncrement } =
+        globalContext as IContextProps;
+
+    const [countValue, setCountValue] = useState<number>(1);
     const [incrementAvelable, setIncrementAvelable] = useState<boolean>(true);
     const [decrementAvelable, setDecrementAvelable] = useState<boolean>(true);
 
-    const discountValue: number = 0.35;
-    const priceWithOutDiscount: number = notDiscount(price, count);
-    const priceDiscount: number = discount(price, discountValue, count);
-    const stockAvelable: number = stockCount(stock, count);
-
     useEffect(() => {
-        if (count == stock) {
+        if (countValue == stock) {
             setIncrementAvelable(false);
-        } else if (count == 1) {
+        } else if (countValue == 1) {
             setDecrementAvelable(false);
-        } else if (count > 1 && count < stock) {
+        } else if (countValue > 1 && countValue < stock) {
             setIncrementAvelable(true);
             setDecrementAvelable(true);
         }
-    }, [count]);
+    }, [countValue]);
 
     const handleIncrement = () => {
-        if (count >= 1 && count < stock) {
-            setCount(count + 1);
+        if (counterProductIncrement !== undefined) {
+            counterProductIncrement(id);
+        }
+        if (countValue >= 1 && countValue < stock) {
+            setCountValue(countValue + 1);
         } else {
-            setCount(count);
+            setCountValue(countValue);
         }
     };
+
     const handleDecrement = () => {
-        if (count > 1) {
-            setCount(count - 1);
-        } else if (count == 0) {
-            setCount(1);
+        if (counterProductDecrement !== undefined) {
+            counterProductDecrement(id);
+        }
+        if (countValue > 1) {
+            setCountValue(countValue - 1);
+        } else if (countValue == 0) {
+            setCountValue(1);
         }
     };
+
+    const discountValue = 0.35;
+    const notDiscountParams = {
+        count: countValue,
+        price: price,
+    };
+
+    const priceWithOutDiscount: number = notDiscount(notDiscountParams);
+    const discountParams = {
+        discount: discountValue,
+        count: countValue,
+        price: price,
+    };
+    const priceDiscount: number = discount(discountParams);
 
     return (
         <div className="flex justify-between w-full sm:w-[14rem] ml-3 sm:ml-0 sm:mr-1">
-            <div className="flex gap-1 flex-col items-center">
-                <p className="text-sm px-2 flex text-gray-400">
-                    Stock: {stockAvelable}
-                </p>
-                <div className="flex items-center gap-1 border-2 border-gray-400 text-xl">
-                    {decrementAvelable ? (
-                        <>
-                            <button
-                                className="m-0.5 px-3  hover:bg-cyan-100 transition-all"
-                                onClick={handleDecrement}
-                            >
-                                -
-                            </button>
-                        </>
-                    ) : (
-                        <span className="px-3 py-0.5"></span>
-                    )}
-                    <p className="px-1">{count}</p>
-
-                    {incrementAvelable ? (
-                        <button
-                            className="m-0.5 px-3  hover:bg-cyan-100 transition-all"
-                            onClick={handleIncrement}
-                        >
-                            +
-                        </button>
-                    ) : (
-                        <span className="px-3 py-0.5"></span>
-                    )}
-                </div>
-                <p className="flex items-center text-sm">
-                    <FaDollarSign className="" /> {price} /item
-                </p>
-            </div>
-            <div className="text-2xl px-2 flex flex-col items-center justify-end">
-                <p className="text-2xl px-2 flex">
-                    <FaDollarSign className="" /> {priceDiscount}
-                </p>
-                <p className="text-sm px-2 flex text-gray-400 line-through">
-                    <FaDollarSign className="" /> {priceWithOutDiscount}
-                </p>
-            </div>
+            <Counter
+                decrementAvelable={decrementAvelable}
+                incrementAvelable={incrementAvelable}
+                handleDecrement={handleDecrement}
+                handleIncrement={handleIncrement}
+                countValue={countValue}
+                price={price}
+            />
+            <PriceTotalItem
+                priceWithOutDiscount={priceWithOutDiscount}
+                priceDiscount={priceDiscount}
+                totalPrice={priceDiscount}
+                totalItem={countValue}
+            />
         </div>
     );
 };

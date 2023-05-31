@@ -30,7 +30,6 @@ const Hero: React.FC = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            {/* <div className="hidden sm:block sm:absolute z-20 bottom-0 h-[18rem] sm:w-full bg-gradient-to-t from-neutral-950 from-1% to-transparent"></div> */}
         </div>
     );
 };

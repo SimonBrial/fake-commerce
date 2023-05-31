@@ -1,27 +1,34 @@
 import { useReducer } from "react";
 import AppContext from "./AppContext";
 import AppReducer from "./AppReducer";
-import { ADD_PRODUCT, CART, FETCH_DATA } from "../actions";
-import { initialState } from "../initialState";
-import { IContextProps, IFilterProducts } from "../../interface/interface";
-import { FilterProductsTypes } from "../../types/types";
+import {
+    INCREMENT_PRODUCT_CART,
+    DECREMENT_PRODUCT_CART,
+    DELETE_PRODUCT_CART,
+    FETCH_DATA,
+    ADD_CART,
+    FILTER,
+} from "../actions";
+import {
+    IGlobalInitialState,
+    IContextProducts,
+    IFilterProducts,
+    IContextProps,
+} from "../../interface/interface";
 
 const AppState: React.FC<IContextProps> = (props) => {
-    const initialStateReducer = {
-        products: [] as IContextProps[],
-        cart: initialState,
+    const initialStateReducer: IGlobalInitialState = {
+        products: [],
+        count: [],
+        cart: [],
     };
 
     const [state, dispatch] = useReducer(AppReducer, initialStateReducer);
-
-    // Endpoint para solicutar todos los productos para luego irlos filtrando por categorias
-    //  https://dummyjson.com/products?limit=100&skip=0&select=title,price,discountPercentage,description,thumbnail,category,images,rating,stock,brand
 
     const fetchProducts = async (url: string) => {
         try {
             const response = await fetch(url);
             const data = await response.json();
-            //console.log(data.products);
             dispatch({
                 type: FETCH_DATA,
                 payload: data.products,
@@ -31,38 +38,51 @@ const AppState: React.FC<IContextProps> = (props) => {
         }
     };
 
-    const filterProducts = ({ data }: FilterProductsTypes) => {
-        // `Price: ${priceData}, Category: ${categoryData}, Range of Price: ${priceRangeData}`
-        const { priceData, categoryData, priceRangeData } = data;
-
-        if (priceData !== undefined) {
-            console.log(`Price: ${priceData}`);
-        }
-        if (categoryData !== undefined) {
-            console.log(`Category: ${categoryData}`);
-        }
-        if (priceRangeData !== undefined) {
-            const { maxPrice, minPrice } = priceRangeData;
-            console.log(`Range of Price: ${maxPrice} - ${minPrice}`);
-        }
-    };
-
-    const addProduct = () => {
-        console.log(state);
-        dispatch({
-            type: ADD_PRODUCT,
-            payload: initialState,
+    const filterProducts = ({
+        categoryData,
+    }: IFilterProducts) => {
+        return dispatch({
+            type: FILTER,
+            payload: categoryData,
         });
     };
 
-    const deleteProduct = () => {
-        console.log("Deleting product");
+    const addProduct = (cart: IContextProducts) => {
+        dispatch({
+            type: ADD_CART,
+            payload: { ...cart, quantity: 1 },
+        });
+    };
+
+    const deleteProduct = (id: number) => {
+        dispatch({
+            type: DELETE_PRODUCT_CART,
+            payload: id,
+        });
+    };
+
+    const counterProductIncrement = (id: number) => {
+        dispatch({
+            type: INCREMENT_PRODUCT_CART,
+            payload: id,
+        });
+    };
+
+    const counterProductDecrement = (id: number) => {
+        dispatch({
+            type: DECREMENT_PRODUCT_CART,
+            payload: id,
+        });
     };
 
     // Definition of the value's types for provider context
     const contextValues: IContextProps = {
+        filterData: state.filterData,
         products: state.products,
         cart: state.cart,
+        count: state.count,
+        counterProductIncrement,
+        counterProductDecrement,
         filterProducts,
         fetchProducts,
         deleteProduct,

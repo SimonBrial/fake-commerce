@@ -1,11 +1,7 @@
 import { MdFilterAlt } from "react-icons/md";
 import { BtnFilterType } from "../../types/types";
-/* type BtnFilter = {
-    handleSubmit: () => void;
-}; */
 
 const BtnFilter: React.FC<BtnFilterType> = ({ handleSubmit }): JSX.Element => {
-
     return (
         <button
             onClick={handleSubmit}

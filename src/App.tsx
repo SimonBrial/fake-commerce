@@ -1,15 +1,15 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
+import AppState from "./context/appContext/AppState";
 import NavBar from "./components/NavBar/NavBar";
-import Clothes from "./pages/Clothes";
 import Electronics from "./pages/Electronics";
 import Furniture from "./pages/Furniture";
-import Shoes from "./pages/Shoes";
-import Others from "./pages/Others";
+import NotFound from "./pages/NotFound";
 import CartPage from "./pages/CartPage";
-import AppState from "./context/appContext/AppState";
+import Clothes from "./pages/Clothes";
+import Others from "./pages/Others";
+import Shoes from "./pages/Shoes";
+import Home from "./pages/Home";
 
 function App() {
     return (

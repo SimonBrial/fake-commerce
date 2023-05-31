@@ -10,9 +10,9 @@ const useCurrentCategory = (): CurrentCategoryHook => {
     const categoryPage = location.pathname.split("/")[1];
 
     useEffect(() => {
-        const currentCategory = selectCategory(categoryPage)
-        if (currentCategory !== null) {
-            setCategoriesFilter(currentCategory);
+        const currentCategoryArray = selectCategory(categoryPage)
+        if (currentCategoryArray.category !== undefined) {
+            setCategoriesFilter(currentCategoryArray.category);
         }
     }, [categoryPage]);
 

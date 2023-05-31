@@ -17,11 +17,11 @@ const ByCategory: React.FC<CategoryToFilter> = ({
             setSelectedCategoryIndex(index);
             setCategorySelected(categoryToSelect[index]);
             categorySelectData(categoryToSelect[index]);
+            //console.log(categorySelected);
         } else {
             setCategorySelected("Don't have category");
         }
     };
-    //console.log(categorySelected);
 
     const handleDropDown = () => {
         setAvelable(!avelable);

@@ -19,7 +19,6 @@ const Shoes = () => {
                         <h1 className="absolute text-white sm:text-gray-400 top-[11.5rem] sm:top-[6rem] sm:right-[1rem]">
                             all shoes
                         </h1>
-                        {/* <span className="absolute h-2 w-[21rem] z-10 bg-red-500 right-[1rem] top-[12rem]"></span> */}
                         <h1 className="absolute top-[16rem] sm:top-[13rem] sm:right-[7rem]">
                             what we have
                         </h1>

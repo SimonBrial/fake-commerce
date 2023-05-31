@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { FaDollarSign } from "react-icons/fa";
 import { BsCartPlus } from "react-icons/bs";
 import BtnAddCart from "../Buttons/BtnAddCart";
 import BtnInfoCard from "../Buttons/BtnInfoCard";
 import Carousel from "./Carousel";
 import Rating from "./Rating";
-import { IProducts } from "../../interface/interface";
+import { IContextProps, IProducts } from "../../interface/interface";
+import { AppContext } from "../../context";
+import { contructuringProduct, discount, notDiscount } from "../../utils/utils";
 
 const Card: React.FC<IProducts> = ({
     description,
@@ -14,12 +16,26 @@ const Card: React.FC<IProducts> = ({
     price,
     stock,
     title,
+    id,
 }): JSX.Element => {
     const [seeMore, setSeeMore] = useState<boolean>();
+
+    const globalContext = useContext(AppContext);
+    const { addProduct } = globalContext as IContextProps;
 
     const handleInfo = () => {
         setSeeMore(!seeMore);
     };
+
+    const itemToCart = contructuringProduct({
+        description: description,
+        rating: rating,
+        images: images,
+        price: price,
+        stock: stock,
+        title: title,
+        id: id,
+    });
 
     return (
         <article>
@@ -35,11 +51,20 @@ const Card: React.FC<IProducts> = ({
                     <div className="relative">
                         <h2 className="text-xl">{title}</h2>
                         <div className="flex flex-col items-start text-xl">
-                            <div className="flex items-center">
-                                <span className="">
-                                    <FaDollarSign />
-                                </span>{" "}
-                                <p className="">{price}</p>
+                            <div className="flex">
+                                <div className="flex items-center">
+                                    <span className="">
+                                        <FaDollarSign />
+                                    </span>{" "}
+                                    <p className="">{price !== undefined ? price*0.75 : 0}</p>
+                                </div>
+                                <div className="flex items-center">
+                                    <p className="text-sm px-2 flex items-center text-gray-400 line-through">
+                                        {" "}
+                                        <FaDollarSign className="" />
+                                        {price !== undefined ? price : 0}
+                                    </p>
+                                </div>
                             </div>
                             <div className="text-red-500">
                                 {rating !== undefined ? (
@@ -89,13 +114,18 @@ const Card: React.FC<IProducts> = ({
                 </div>
             </div>
             <div className="mt-2 pb-1">
-                <BtnAddCart
-                    StyleText="flex items-center "
-                    styleIcon="mr-2 text-emerald-700"
-                    icon={<BsCartPlus />}
-                    text="add to cart"
-                    styleBtn="w-full transition-all hover:bg-emerald-200 bg-emerald-100 text-emerald-700 px-4 py-2 flex items-center justify-center text-center"
-                />
+                {addProduct !== undefined ? (
+                    <BtnAddCart
+                        handleAction={() => addProduct(itemToCart)}
+                        StyleText="flex items-center "
+                        styleIcon="mr-2 text-emerald-700"
+                        icon={<BsCartPlus />}
+                        text="add to cart"
+                        styleBtn="w-full transition-all hover:bg-emerald-200 bg-emerald-100 text-emerald-700 px-4 py-2 flex items-center justify-center text-center"
+                    />
+                ) : (
+                    <></>
+                )}
             </div>
         </article>
     );

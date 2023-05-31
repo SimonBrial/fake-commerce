@@ -15,11 +15,11 @@ const CartItem: React.FC<IContextProducts> = ({
     price,
     title,
     brand,
+    id,
 }): JSX.Element => {
+    const globalContext = useContext(AppContext);
+    const { deleteProduct } = globalContext as IContextProps;
 
-    const globalContext = useContext(AppContext)
-    const {  deleteProduct } = globalContext as IContextProps;
-    
     return (
         <div className="relative flex gap-2 flex-row items-center p-1 border-2 border-gray-300 hover:bg-gradient-to-r from-gray-200 to-white transition-all">
             {Array.isArray(images) ? (
@@ -31,8 +31,10 @@ const CartItem: React.FC<IContextProducts> = ({
             ) : (
                 <div>Image not available</div>
             )}
-            <div className="relative w-3/5 px-1 cursor-default leading-4
-            ">
+            <div
+                className="relative w-3/5 px-1 cursor-default leading-4
+            "
+            >
                 <h3 className="text-lg">{title}</h3>
                 <p className="">{brand}</p>
                 <p className="w-2/3 flex items-center px-2 text-xl bg-gradient-to-r from-yellow-400 to-white">
@@ -42,12 +44,16 @@ const CartItem: React.FC<IContextProducts> = ({
                     {price}
                 </p>
             </div>
-            <BtnAddCart
-                icon={<TiDelete />}
-                styleIcon="text-3xl text-red-500"
-                styleBtn="w-10 h-10 absolute right-1 top-7 hover:bg-red-100 transition-all duration-500 flex items-center justify-center rounded-full"
-                handleAction={deleteProduct}
-            />
+            {id !== undefined ? (
+                <BtnAddCart
+                    icon={<TiDelete />}
+                    styleIcon="text-3xl text-red-500"
+                    styleBtn="w-10 h-10 absolute right-1 top-7 hover:bg-red-100 transition-all duration-500 flex items-center justify-center rounded-full"
+                    handleAction={() => deleteProduct?.(id)}
+                />
+            ) : (
+                <></>
+            )}
         </div>
     );
 };

@@ -41,7 +41,6 @@ const Pagination: React.FC<IPagination> = ({
                     results
                 </p>
             </div>
-            {/* <nav className="block"></nav>*/}
             <div>
                 <nav className="relative z-0 inline-flex gap-2 rounded-md shadow-sm -space-x-px">
                     <a

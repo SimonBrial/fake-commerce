@@ -31,7 +31,7 @@ const Clothes: React.FC = (): JSX.Element => {
                     </div>
                 </div>
             </div>
-            <ShopContainer /* products={products} */ />
+            <ShopContainer />
             <Offer />
             <Footer />
         </div>
