@@ -42,6 +42,7 @@ interface IContextProps {
     cart?: IContextProducts[];
     children?: any;
     count?: IContextProducts[];
+    clearCart?: () => void;
     fetchProducts?: (urlArray: string) => void;
     deleteProduct?: (id: number) => void;
     addProduct?: (product: IContextProducts) => void;

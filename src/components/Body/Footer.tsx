@@ -40,7 +40,7 @@ const Footer: React.FC = (): JSX.Element => {
                 </div>
             </div>
             <div className="bg-slate-500 w-full text-center py-1 mt-1">
-                All rights reserved <span className="px-0.5">®</span>
+                All rights reserved <span className="px-0.5 text-white">®</span> Develop by <span className="text-white">Simon Briceño</span>
             </div>
         </footer>
     );

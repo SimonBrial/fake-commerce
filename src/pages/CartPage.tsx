@@ -1,13 +1,16 @@
-import { useEffect, useContext } from "react";
-import { CartItemPage, Summary } from "../components/Cart";
+import { useEffect, useContext, useState } from "react";
+import { CartItemPage, Summary, TotalToPay } from "../components/Cart";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../context";
 import { IContextProps, IContextProducts } from "../interface/interface";
+import { createPortal } from "react-dom";
 
 const CartPage: React.FC = (): JSX.Element => {
 
     const globalContext = useContext(AppContext);
     const { cart } = globalContext as IContextProps;
+
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const navigate = useNavigate();
 
@@ -19,7 +22,7 @@ const CartPage: React.FC = (): JSX.Element => {
 
     return (
         <div className="relative sm:mx-5">
-            <div className="absolute top-[5rem] w-full p-3 sm:p-5">
+            <div id="hereModal"  className="absolute top-[5rem] w-full p-3 sm:p-5">
                 {cart !== undefined ? (
                     <>
                         <h1 className="text-4xl mb-3 text-center sm:text-start cursor-default">

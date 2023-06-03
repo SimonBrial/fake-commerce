@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom";
 import { DiReact } from "react-icons/di";
 
 const Hero: React.FC = (): JSX.Element => {
+    const navegation = useNavigate();
+    const handleNavegation = () => {
+        navegation("clothes");
+    };
     return (
         <div>
             <div className="relative h-[40rem] sm:h-[55rem]">
@@ -21,12 +26,13 @@ const Hero: React.FC = (): JSX.Element => {
                         <p className="text-[3rem] sm:text-[4rem] text-center leading-tight">
                             Choose your style with the best clothes
                         </p>
-                        <p className="w-[9rem] sm:w-[11rem] text-[4rem] bg-white sm:font-bold text-center border-4 sm:border-8 border-black uppercase cursor-pointer">
+                        <button
+                            onClick={() => handleNavegation()}
+                            className="w-[9rem] sm:w-[11rem] text-[4rem] bg-white sm:font-bold text-center border-4 sm:border-8 border-black uppercase cursor-pointer"
+                        >
                             Here
-                        </p>
-                        <p className="text-center mt-2 text-xl">
-                            Click Me!
-                        </p>
+                        </button>
+                        <p className="text-center mt-2 text-xl">Click Me!</p>
                     </div>
                 </div>
             </div>

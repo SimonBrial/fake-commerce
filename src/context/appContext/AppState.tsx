@@ -6,6 +6,7 @@ import {
     DECREMENT_PRODUCT_CART,
     DELETE_PRODUCT_CART,
     FETCH_DATA,
+    CLEAR_CART,
     ADD_CART,
     FILTER,
 } from "../actions";
@@ -38,9 +39,7 @@ const AppState: React.FC<IContextProps> = (props) => {
         }
     };
 
-    const filterProducts = ({
-        categoryData,
-    }: IFilterProducts) => {
+    const filterProducts = ({ categoryData }: IFilterProducts) => {
         return dispatch({
             type: FILTER,
             payload: categoryData,
@@ -75,6 +74,12 @@ const AppState: React.FC<IContextProps> = (props) => {
         });
     };
 
+    const clearCart = () => {
+        dispatch({
+            type: CLEAR_CART,
+        });
+    };
+
     // Definition of the value's types for provider context
     const contextValues: IContextProps = {
         filterData: state.filterData,
@@ -87,6 +92,7 @@ const AppState: React.FC<IContextProps> = (props) => {
         fetchProducts,
         deleteProduct,
         addProduct,
+        clearCart,
     };
 
     return (

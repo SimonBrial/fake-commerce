@@ -4,12 +4,14 @@ const DELETE_PRODUCT_CART: String = "DELETE_PRODUCT_CART";
 const FETCH_DATA: String = "FETCH_DATA";
 const ADD_CART: String = "ADD_CART";
 const FILTER: String = "FILTER";
+const CLEAR_CART: String = "CLEAR_CART";
 
 export {
     DECREMENT_PRODUCT_CART,
     INCREMENT_PRODUCT_CART,
     DELETE_PRODUCT_CART,
     FETCH_DATA,
+    CLEAR_CART,
     ADD_CART,
     FILTER,
 };

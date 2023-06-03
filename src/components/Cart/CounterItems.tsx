@@ -77,8 +77,6 @@ const CounterItems: React.FC<ICounterItems> = ({
             <PriceTotalItem
                 priceWithOutDiscount={priceWithOutDiscount}
                 priceDiscount={priceDiscount}
-                totalPrice={priceDiscount}
-                totalItem={countValue}
             />
         </div>
     );

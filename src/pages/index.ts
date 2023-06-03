@@ -1,5 +1,4 @@
 import Electronics from "./Electronics";
-import TotalToPay from "./TotalToPay";
 import Furniture from "./Furniture";
 import NotFound from "./NotFound";
 import CartPage from "./CartPage";
@@ -10,7 +9,6 @@ import Home from "./Home";
 
 export {
     Electronics,
-    TotalToPay,
     Furniture,
     CartPage,
     NotFound,

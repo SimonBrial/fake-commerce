@@ -3,6 +3,7 @@ import {
     INCREMENT_PRODUCT_CART,
     DELETE_PRODUCT_CART,
     FETCH_DATA,
+    CLEAR_CART,
     ADD_CART,
     FILTER,
 } from "../actions";
@@ -68,6 +69,12 @@ export default (state: any, action: any) => {
                 ...state,
                 count: [...state.cart],
             };
+        
+        case CLEAR_CART:
+                return{
+                    ...state,
+                    cart: []
+                }
 
         default:
             return state;
